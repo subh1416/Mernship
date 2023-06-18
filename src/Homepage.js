@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer'
 
 function Homepage() {
   return (
-    <div className="homepage">
+    <div className="homepaage">
         <div className="homeheader">
           <Header/>
         </div>
