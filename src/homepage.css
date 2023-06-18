@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Ubuntu&display=swap");
+
+.html {
+  /* background-color: white; */
+  background-color: #d9d9d9;
+
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.homepage {
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(250, 247, 239);
+
+
+}
+
+.homemain{
+    background-color: rgb(250, 247, 239);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    
+    
+    
+}
+
+.alpha {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: max-content;
+  border-radius: 30px;
+}
