@@ -1,0 +1,77 @@
+.alpha {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: white;
+    height: max-content;
+    border-radius: 30px;
+    width: max-content;
+  }
+  
+  .body2 {
+    background-color: rgb(250, 247, 239);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  
+  .rectangle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid salmon; */
+    border-radius: 6px;
+  }
+  
+  .admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .bu1 {
+    width: 100%;
+  
+  
+    border: none;
+    border-radius: 6px;
+  }
+  
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .bu2 {
+    width: 100%;
+  
+    border: none;
+    border-radius: 6px;
+  }
+  
+  .admin_login {
+    margin-top: 25px;
+    display: none;
+  }
+  
+  .user_login {
+    margin-top: 25px;
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  #login {
+    margin-top: 9px;
+  }
+  
+  .transition{
+      transition: 0.5s ease-in-out;
+  }

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./homepage.css"
-import Header from "./components/header/Header"
-import Footer from './components/Footer/Footer'
+import Header from "../components/header/Header"
+import Footer from '../components/Footer/Footer'
 
 function Homepage() {
   return (
