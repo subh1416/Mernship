@@ -1,0 +1,98 @@
+.alpha {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: white;
+  height: max-content;
+  border-radius: 30px;
+  width: 380px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.body2 {
+  background-color: rgb(250, 247, 239);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 5px;
+}
+
+.rectangle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid salmon; */
+  border-radius: 6px;
+}
+
+.admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.bu1 {
+  width: 100%;
+
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border: none;
+  border-radius: 6px;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.bu2 {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border: none;
+  border-radius: 6px;
+}
+
+.admin_login {
+  margin-top: 25px;
+  display: none;
+}
+.recover{
+  margin-top: 25px;
+
+}
+.user_login {
+  margin-top: 25px;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#login {
+  margin-top: 9px;
+  box-shadow:  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.transition{
+    transition: 0.5s ease-in-out;
+}
+.recovery{
+  margin-top: 5px;
+}
+.tet{
+
+  padding-right: 3px;
+
+}
+
+.tet2{
+  font-size: smaller;
+  text-decoration: none;
+}
