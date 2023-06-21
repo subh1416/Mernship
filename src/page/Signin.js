@@ -21,10 +21,10 @@ function Signin() {
 
   const formik = useFormik({
     initialValues: {
-      username: "subh1234",
-      email: "subh@gmail.com",
-      password: "subh@123",
-      confirmpassword: "subh@123",
+      username: "",
+      email: "",
+      password: "",
+      confirmpassword: "",
     },
     validate: registerValidation,
     validateOnBlur: false,
@@ -75,7 +75,7 @@ function Signin() {
       <Header />
       <div className="body3">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
-        <section className="alpha3  mx-auto box-shadow">
+        <section className="alpha3   box-shadow">
           <div className="p-5 ">
             <h2 className="my-3">Register</h2>
             <div className="rectangle">
@@ -106,9 +106,9 @@ function Signin() {
               }`}
             >
               <form onSubmit={formik.handleSubmit}>
-                <div className="row">
+                <div className="row1">
                   <div className="col-12">
-                    <div className="row">
+                    <div className="row1">
                       <label>Name</label>
                       <input
                         {...formik.getFieldProps("username")}
@@ -116,7 +116,7 @@ function Signin() {
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <label>Email</label>
                       <input
                         {...formik.getFieldProps("email")}
@@ -124,7 +124,7 @@ function Signin() {
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <label>Password</label>
                       <input
                         {...formik.getFieldProps("password")}
@@ -132,7 +132,7 @@ function Signin() {
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <label> Confirm Password</label>
                       <input
                         {...formik.getFieldProps("confirmpassword")}
@@ -140,7 +140,7 @@ function Signin() {
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <button type="submit" className="btn" id="login" >
                         Register
                       </button>
@@ -155,29 +155,29 @@ function Signin() {
                 isClicked["c#2"] ? "transition active" : ""
               }`}
             >
-              <div className="row">
+              <div className="row1">
                 <div className="col-12">
-                  <div className="row">
+                  <div className="row1">
                     <label>First Name</label>
                     <input type="text" id="try" />
                   </div>
-                  <div className="row">
+                  <div className="row1">
                     <label>Last Name</label>
                     <input type="text" id="try" />
                   </div>
-                  <div className="row">
+                  <div className="row1">
                     <label>Email</label>
                     <input type="email" id="try" />
                   </div>
-                  <div className="row">
+                  <div className="row1">
                     <label>Password</label>
                     <input type="text" id="try" />
                   </div>
-                  <div className="row">
+                  <div className="row1">
                     <label> Confirm Password</label>
                     <input type="password" id="try" />
                   </div>
-                  <div className="row">
+                  <div className="row1">
                     <button type="submit" className="btn" id="login" href="">
                       <Link to="/dash" className="des">
                         Login

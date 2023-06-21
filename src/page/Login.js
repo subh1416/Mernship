@@ -11,7 +11,7 @@ import { verifyPassword } from "../helper/helper";
 // import useFetch from "../hooks/fetch.hook";
 
 function Login() {
-  const [buttonColor, setButtonColor] = useState("#a55eea");
+  const [buttonColor, setButtonColor] = useState("#142850");
   const [button2Color, setButton2Color] = useState("white");
   const [isClicked, setIsClicked] = useState({
     "c#1": true,
@@ -20,7 +20,7 @@ function Login() {
 
   const handleButtonClick = (id) => {
     if (id === "c#1") {
-      setButtonColor("#a55eea");
+      setButtonColor("#142850");
       setButton2Color("white");
       setIsClicked({
         "c#1": true,
@@ -29,7 +29,7 @@ function Login() {
       console.log("yt");
     } else if (id === "c#2") {
       setButtonColor("white");
-      setButton2Color("#a55eea");
+      setButton2Color("#142850");
       setIsClicked({
         "c#1": false,
         "c#2": true,
@@ -41,11 +41,11 @@ function Login() {
 
   const buttonStyle = {
     backgroundColor: buttonColor,
-    color: isClicked && buttonColor === "#a55eea" ? "white" : "#a55eea",
+    color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
   };
   const buttonStyle2 = {
     backgroundColor: button2Color,
-    color: isClicked && button2Color === "white" ? "#a55eea" : "white",
+    color: isClicked && button2Color === "white" ? "#142850" : "white",
   };
 
   const navigate = useNavigate();
@@ -53,8 +53,8 @@ function Login() {
   
   const formik = useFormik({
     initialValues: {
-      username: "example123",
-      password: "admin@123",
+      username: "",
+      password: "",
     },
     validate: loginValidation,
     validateOnBlur: false,
@@ -90,7 +90,7 @@ function Login() {
       <Header />
       <div className="body2">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
-        <section className="alpha  mx-auto box-shadow">
+        <section className="alpha-2">
           <div className="p-5 ">
             <h2 className="my-3">Welcome Again!</h2>
             <div className="rectangle">
@@ -120,23 +120,23 @@ function Login() {
                 isClicked["c#1"] ? "transition active" : ""
               }`}
             >
-              <div className="row">
+              <div className="row1">
                 <div className="col-12">
                   <form onSubmit={formik.handleSubmit}>
-                    <div className="row">
-                      <label>Username:</label>
+                    <div className="row1">
+                      <label>Username</label>
                       <input {...formik.getFieldProps("username")} id="try" />
                     </div>
 
-                    <div className="row">
-                      <label>Password:</label>
+                    <div className="row1">
+                      <label>Password</label>
                       <input
                         {...formik.getFieldProps("password")}
                         type="password"
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <button type="submit" className="btn" id="login">
                         Login
                       </button>
@@ -154,11 +154,11 @@ function Login() {
                 isClicked["c#2"] ? "transition active" : ""
               }`}
             >
-              <div className="row">
+              <div className="row1">
                 <div className="col-12">
                   <form onSubmit={formik.handleSubmit}>
-                    <div className="row">
-                      <label>Username:</label>
+                    <div className="row1">
+                      <label>Username</label>
                       <input
                         {...formik.getFieldProps("username")}
                         type="text"
@@ -166,15 +166,15 @@ function Login() {
                       />
                     </div>
 
-                    <div className="row">
-                      <label>Password:</label>
+                    <div className="row1">
+                      <label>Password</label>
                       <input
                         {...formik.getFieldProps("password")}
                         type="password"
                         id="try"
                       />
                     </div>
-                    <div className="row">
+                    <div className="row1">
                       <button type="submit" className="btn" id="login" href="">
                         Login
                       </button>
