@@ -9,7 +9,7 @@ import { registerValidation } from "../helper/validate";
 import { registerUser } from "../helper/helper";
 
 function Signin() {
-  const [buttonColor, setButtonColor] = useState("#a55eea");
+  const [buttonColor, setButtonColor] = useState("#142850");
   const [button2Color, setButton2Color] = useState("white");
   const [isClicked, setIsClicked] = useState({
     "c#1": true,
@@ -44,7 +44,7 @@ function Signin() {
 
   const handleButtonClick = (id) => {
     if (id === "c#1") {
-      setButtonColor("#a55eea");
+      setButtonColor("#142850");
       setButton2Color("white");
       setIsClicked({
         "c#1": true,
@@ -52,7 +52,7 @@ function Signin() {
       });
     } else if (id === "c#2") {
       setButtonColor("white");
-      setButton2Color("#a55eea");
+      setButton2Color("#142850");
       setIsClicked({
         "c#1": false,
         "c#2": true,
@@ -63,23 +63,23 @@ function Signin() {
 
   const buttonStyle = {
     backgroundColor: buttonColor,
-    color: isClicked && buttonColor === "#a55eea" ? "white" : "#a55eea",
+    color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
   };
   const buttonStyle2 = {
     backgroundColor: button2Color,
-    color: isClicked && button2Color === "white" ? "#a55eea" : "white",
+    color: isClicked && button2Color === "white" ? "#142850" : "white",
   };
 
   return (
-    <div className="log">
+    <div className="log1">
       <Header />
       <div className="body3">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <section className="alpha3   box-shadow">
           <div className="p-5 ">
             <h2 className="my-3">Register</h2>
-            <div className="rectangle">
-              <div className="admin">
+            <div className="rectangle1">
+              <div className="admin1">
                 <button
                   className="bu1"
                   id="c#1"
@@ -89,7 +89,7 @@ function Signin() {
                   Admin
                 </button>
               </div>
-              <div className="user">
+              <div className="user1">
                 <button
                   className="bu2"
                   id="c#2"
@@ -158,11 +158,7 @@ function Signin() {
               <div className="row1">
                 <div className="col-12">
                   <div className="row1">
-                    <label>First Name</label>
-                    <input type="text" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label>Last Name</label>
+                    <label>Name</label>
                     <input type="text" id="try" />
                   </div>
                   <div className="row1">
@@ -180,7 +176,7 @@ function Signin() {
                   <div className="row1">
                     <button type="submit" className="btn" id="login" href="">
                       <Link to="/dash" className="des">
-                        Login
+                        Register
                       </Link>
                     </button>
                   </div>

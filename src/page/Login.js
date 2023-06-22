@@ -96,7 +96,7 @@ function Login() {
             <div className="rectangle">
               <div className="admin">
                 <button
-                  className="bu1"
+                  className="but1"
                   id="c#1"
                   style={buttonStyle}
                   onClick={() => handleButtonClick("c#1")}
@@ -106,7 +106,7 @@ function Login() {
               </div>
               <div className="user">
                 <button
-                  className="bu2"
+                  className="but2"
                   id="c#2"
                   style={buttonStyle2}
                   onClick={() => handleButtonClick("c#2")}
@@ -180,6 +180,10 @@ function Login() {
                       </button>
                     </div>
                   </form>
+                  <div className="recovery">
+            <span className="tet">Forgot Password?</span>
+            <span ><Link className="tet2" to="/recover"> Recover now</Link></span>
+          </div>
                 </div>
               </div>
             </div>

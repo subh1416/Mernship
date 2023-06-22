@@ -1,80 +1,111 @@
 .alpha3 {
-  
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    background-color: white;
-    height: max-content;
-    border-radius: 30px;
-    width: max-content;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+  background-color: #fff;
+  border-radius: 10px;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  display: flex;
+  justify-content: center;
   }
   
   .body3 {
     background-color: rgb(250, 247, 239);
+    flex: 1;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 20px;
   }
   
-  .rectangle {
+  .rectangle1 {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 1px solid salmon; */
-    border-radius: 6px;
+    margin-bottom: 1.5rem;
   }
   
-  .admin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-  }
+.admin1 .bu1,
+.user1 .bu2 {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  width: 129px;
+}
+
+.admin1 .bu1 {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.user1 .bu2 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
   
-  .bu1 {
-    width: 100%;
+.admin_login,
+.user_login {
+  display: none;
+}
   
-  
-    border: none;
-    border-radius: 6px;
-  }
-  
-  .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-  }
-  
-  .bu2 {
-    width: 100%;
-  
-    border: none;
-    border-radius: 6px;
-  }
-  
-  .admin_login {
-    margin-top: 25px;
-    display: none;
-  }
-  
-  .user_login {
-    margin-top: 25px;
-    display: none;
-  }
-  
-  .active {
-    display: block;
-  }
+.admin_login.active,
+.user_login.active {
+  display: block;
+}
   
   #login {
     margin-top: 9px;
   }
   
   .transition{
-      transition: 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
   }
+
+.row1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 1rem;
+  /* font-weight: bold; */
+  margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  background-color: #142850;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.p-5 {
+  padding: 2rem !important;
+  width: 83%;
+}
+
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.log1 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
