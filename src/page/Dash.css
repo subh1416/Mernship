@@ -9,7 +9,18 @@
   display: block;
 }
 
+.hgo{
+  margin-right: 3px;
+  border:1px solid #2c4c6a;
+  background-color: white;
+  border-radius: 10px;
+}
 
+.hgo:hover{
+  background-color: #2c4c6a;
+  color: white;
+
+}
 
 .head23{
   margin: 7px;
@@ -51,8 +62,16 @@
   justify-content: space-between;
 }
 
+.ofji{
+  margin-top: 9px;
+}
+
 .hed34{
+  display: flex;
+  justify-content: space-evenly;
+  width: 190px;
   margin-left: 35px;
+
 }
 
 #try908{

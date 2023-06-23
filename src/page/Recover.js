@@ -61,7 +61,7 @@ function Recover() {
       <Header />
       <div className="body2">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
-        <section className="alpha  mx-auto box-shadow">
+        <section className="alpha-2  ">
           <div className="p-5 ">
             <h2 className="my-3">Recover Password</h2>
 

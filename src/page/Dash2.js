@@ -5,40 +5,36 @@ import Usercard from "../components/usercard/Usercard";
 function Dash2() {
   return (
     <div className="dsdf3">
-
       <div className="fgh">
-      <div className="hh4lj3">
-
-        <div className="head23">
-          <span className="heds"> Dashboard</span>
+        <div className="hh4lj3">
+          <div className="head23">
+            <span className="heds"> Dashboard</span>
+          </div>
+          <div className="shots34">
+            <Smallcards title={"Number of active user"} number={"86486"} />
+            <Smallcards title={"Number of active user"} number={"86486"} />
+            <Smallcards title={"Number of active user"} number={"86486"} />
+            <Smallcards title={"Number of active user"} number={"86486"} />
+          </div>
         </div>
-        <div className="shots34">
-          <Smallcards title={"Number of active user"} number={"86486"} />
-          <Smallcards title={"Number of active user"} number={"86486"} />
-          <Smallcards title={"Number of active user"} number={"86486"} />
-          <Smallcards title={"Number of active user"} number={"86486"} />
-        </div>
-      </div>
-
 
         <div className="hgf">
           <div className="head64">
-            <div className="hed34">All Users</div>
+            <div className="hed34">
+              <span className="ofji"> All Users</span>
+              <button className="hgo">Add User</button>
+            </div>
             <div className="sercg">
               {" "}
               <label></label>
-              <input
-               placeholder="Search Users"
-                type="search"
-                id="try908"
-              />
+              <input placeholder="Search Users" type="search" id="try908" />
             </div>
           </div>
 
           <div className="containerkdihd">
-            <Usercard/>
-            <Usercard/>
-            <Usercard/>
+            <Usercard />
+            <Usercard />
+            <Usercard />
           </div>
         </div>
       </div>
