@@ -76,7 +76,7 @@ function Signin() {
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <section className="alpha3   box-shadow">
           <div className="p-5 ">
-            <h2 className="my-3">Register</h2>
+            <center><h2 className="my-3">Register</h2></center>
             <div className="rectangle">
               <div className="admin">
                 <button
@@ -157,11 +157,7 @@ function Signin() {
               <div className="row1">
                 <div className="col-12">
                   <div className="row1">
-                    <label>First Name</label>
-                    <input type="text" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label>Last Name</label>
+                    <label>Name</label>
                     <input type="text" id="try" />
                   </div>
                   <div className="row1">
@@ -179,7 +175,7 @@ function Signin() {
                   <div className="row1">
                     <button type="submit" className="btn" id="login" href="">
                       <Link to="/dash" className="des">
-                        Login
+                        Register
                       </Link>
                     </button>
                   </div>

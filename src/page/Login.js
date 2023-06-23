@@ -93,7 +93,7 @@ function Login() {
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <section className="alpha-2">
           <div className="p-5 ">
-            <h2 className="my-3">Welcome Again!</h2>
+            <center><h2 className="my-3">Welcome Again!</h2></center>
             <div className="rectangle">
               <div className="admin">
                 <button

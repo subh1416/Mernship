@@ -1,15 +1,8 @@
-import {useNavigate} from 'react-router-dom';
 import React from 'react';
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import './profile.css';
 
 function Profile() {
-
-    const navigate = useNavigate();
-
-    const handleShow = () => navigate("/");
-    const handleClick = () => navigate("/about");
-    
     return (
         <div className="ulog">
           <div className="ubody2">
@@ -26,7 +19,7 @@ function Profile() {
                     <div className='details'>
                       <div className='urow1'>
                         <div className='col-6'>
-                          <label>Name: </label>
+                          <label><strong>Name: </strong></label>
                         </div>
                         <div className='col-6'>
                           <label>username</label>
@@ -34,7 +27,7 @@ function Profile() {
                       </div>
                       <div className='urow1'>
                         <div className='col-6'>
-                          <label>Email: </label>
+                          <label><strong>Email: </strong></label>
                         </div>
                         <div className='col-6'>
                           <label>useremail</label>
@@ -42,7 +35,7 @@ function Profile() {
                       </div>
                       <div className='urow1'>
                         <div className='col-6'>
-                          <label>Mobile Number: </label>
+                          <label><strong>Mobile Number: </strong></label>
                         </div>
                         <div className='col-6'>
                           <label>usermobilenumber</label>
@@ -50,7 +43,7 @@ function Profile() {
                       </div>
                       <div className='urow1'>
                         <div className='col-6'>
-                          <label>Address: </label>
+                          <label><strong>Address: </strong></label>
                         </div>
                         <div className='col-6'>
                           <label>useraddress</label>
