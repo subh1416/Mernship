@@ -1,10 +1,10 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/header/Header";
 import "./Login.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import Footer from "../components/Footer/Footer";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginValidation } from "../helper/validate";
 import { useAuthStore } from "../store/store";
 import { verifyPassword } from "../helper/helper";
@@ -49,8 +49,8 @@ function Login() {
   };
 
   const navigate = useNavigate();
-  const setUsername =  useAuthStore(state => state.setUsername)
-  
+  const setUsername = useAuthStore((state) => state.setUsername);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -61,27 +61,28 @@ function Login() {
     validateOnChange: false,
     onSubmit: async (values) => {
       setUsername(values.username);
-      console.log(values)
+      console.log(values);
 
-      let loginPromise = verifyPassword({username : values.username , password : values.password})
-      toast.promise(loginPromise , {
-        loading: 'Checking',
+      let loginPromise = verifyPassword({
+        username: values.username,
+        password: values.password,
+      });
+      toast.promise(loginPromise, {
+        loading: "Checking",
         success: <b>logged in Succesfully</b>,
-        error : <b>password doesn't match</b>
-      })
+        error: <b>password doesn't match</b>,
+      });
 
       loginPromise
-      .then(res => {
-        let { token } = res.data;
-        localStorage.setItem('token', token);
-        // console.log(values.password)
-        navigate('/dash')
-        
-      })
-      .catch(error => {
-        console.error(error);
-      });
-      
+        .then((res) => {
+          let { token } = res.data;
+          localStorage.setItem("token", token);
+          // console.log(values.password)
+          navigate("/dash");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   });
 
@@ -143,9 +144,14 @@ function Login() {
                     </div>
                   </form>
                   <div className="recovery">
-            <span className="tet">Forgot Password?</span>
-            <span ><Link className="tet2" to="/recover"> Recover now</Link></span>
-          </div>
+                    <span className="tet">Forgot Password?</span>
+                    <span>
+                      <Link className="tet2" to="/recover">
+                        {" "}
+                        Recover now
+                      </Link>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,11 +186,18 @@ function Login() {
                       </button>
                     </div>
                   </form>
+                  <div className="recovery">
+                    <span className="tet">Forgot Password?</span>
+                    <span>
+                      <Link className="tet2" to="/recover">
+                        {" "}
+                        Recover now
+                      </Link>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          
-         
           </div>
         </section>
       </div>

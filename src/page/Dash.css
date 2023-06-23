@@ -1,0 +1,62 @@
+.dsdf3 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: scroll;
+}
+
+.fgh .hgf{
+  display: block;
+}
+
+
+
+.head23{
+  margin: 7px;
+  padding: 7px;
+}
+
+.hh4lj3{
+  color: white;
+  font-weight: bold;
+  margin-top: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: #8BC6EC;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  
+}
+
+.heds{
+  font-size: larger;
+
+}
+
+.shots34{
+  margin: 23px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+
+}
+
+.head64{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: max-content;
+  justify-content: space-between;
+}
+
+.hed34{
+  margin-left: 35px;
+}
+
+#try908{
+  /* outline: 1cap; */
+  border: 1px solid #2c4c6a;
+}
+

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@300&family=Ubuntu&display=swap');
 
 .html {
   /* background-color: white; */
@@ -10,15 +10,12 @@
 }
 
 .homepage {
-  font-family: "Ubuntu", sans-serif;
-  background-color: rgb(250, 247, 239);
+  font-family: 'Mulish', sans-serif;
+    background-color: rgb(250, 247, 239);
   overflow: auto; /* Add this line */
-
-
-
 }
+
 .homemain {
-  
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
@@ -28,7 +25,6 @@
   margin-bottom: 30vh;
 }
 
-
 .alpha {
   display: flex;
   flex-direction: row;
@@ -36,11 +32,12 @@
   height: max-content;
   border-radius: 30px;
   margin: 50px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
-.bl23{
-  margin-top: 50px;
-  
+.bl23 {
+  margin: 50px;
 
+  /* margin-top: 50px; */
 }

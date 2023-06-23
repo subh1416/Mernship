@@ -9,7 +9,7 @@ import { registerValidation } from "../helper/validate";
 import { registerUser } from "../helper/helper";
 
 function Signin() {
-  const [buttonColor, setButtonColor] = useState("#a55eea");
+  const [buttonColor, setButtonColor] = useState("#142850");
   const [button2Color, setButton2Color] = useState("white");
   const [isClicked, setIsClicked] = useState({
     "c#1": true,
@@ -44,7 +44,7 @@ function Signin() {
 
   const handleButtonClick = (id) => {
     if (id === "c#1") {
-      setButtonColor("#a55eea");
+      setButtonColor("#142850");
       setButton2Color("white");
       setIsClicked({
         "c#1": true,
@@ -52,7 +52,7 @@ function Signin() {
       });
     } else if (id === "c#2") {
       setButtonColor("white");
-      setButton2Color("#a55eea");
+      setButton2Color("#142850");
       setIsClicked({
         "c#1": false,
         "c#2": true,
@@ -60,14 +60,13 @@ function Signin() {
     }
     // setIsClicked(true);
   };
-
   const buttonStyle = {
     backgroundColor: buttonColor,
-    color: isClicked && buttonColor === "#a55eea" ? "white" : "#a55eea",
+    color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
   };
   const buttonStyle2 = {
     backgroundColor: button2Color,
-    color: isClicked && button2Color === "white" ? "#a55eea" : "white",
+    color: isClicked && button2Color === "white" ? "#142850" : "white",
   };
 
   return (

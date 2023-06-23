@@ -25,6 +25,9 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
   display: flex;
   justify-content: center;
+  margin: 50px;
+
+
 }
 
 .p-5 {
@@ -40,6 +43,7 @@
 .rectangle {
   display: flex;
   margin-bottom: 1.5rem;
+
 }
 
 .admin .bu1,
@@ -51,6 +55,8 @@
   font-size: 1rem;
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  width: 134px;
+
 }
 
 .admin .bu1 {

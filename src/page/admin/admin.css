@@ -1,0 +1,30 @@
+.dsdf3 {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+  }
+  .ds1 {
+    width: 20%;
+    background-color: #2c4c6a;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    
+  }
+  
+  .df2 {
+    width: 80%;
+    margin-left: 20%;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+  }
+  
+  .content34 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  
