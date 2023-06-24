@@ -1,9 +1,136 @@
+/* Login.css */
 
-.dsdf3 {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
+.ulog {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.ubody2 {
+  background-color: rgb(250, 247, 239);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ualpha-2{
+  background-color: #fff;
+  border-radius: 10px;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.up-5 {
+  padding: 2rem !important;
+  width: 83%;
+  align-items: center;
+  justify-content: center;
+}
+
+.umy-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.urectangle {
+  display: flex;
+  margin-bottom: 1.5rem;
+  width: 268px;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+label {
+  font-size: 1rem;
+  /* font-weight: bold; */
+  margin-bottom: 0.5rem;
+  display: flex;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.ubtn {
+  display: flex;
+  background-color: #142850;
+  color: white;
+  margin-right: 6px;
+  height: 30px;
+  border-radius: 15px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ubtn:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+    text-decoration: none;
     
-  }
-  
-  
+}
+
+#propic{
+max-height: 150px;
+max-width: 150px;
+border-radius: 100px;
+margin: auto;
+align-items: center;
+}
+
+.urow1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-6{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*.proimg{
+margin-left: 60px;
+margin-right: 70px;
+}*/
+
+#hr{
+width: 350px;
+height: 0.6px;
+background-color: black;
+margin-left: 10px;
+}
+
+.uadmin{
+align-items: center;
+justify-content: center;
+}
+
+.details{
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add more CSS styles as needed */

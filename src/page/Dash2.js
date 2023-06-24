@@ -2,6 +2,8 @@ import React from "react";
 import "./Dash.css";
 import Smallcards from "../components/Smallcards/Smallcards";
 import Usercard from "../components/usercard/Usercard";
+import { NavLink } from "react-router-dom";
+
 function Dash2() {
   return (
     <div className="dsdf3">
@@ -22,7 +24,7 @@ function Dash2() {
           <div className="head64">
             <div className="hed34">
               <span className="ofji"> All Users</span>
-              <button className="hgo">Add User</button>
+             <NavLink to="/addUser"> <button className="hgo">Add User</button></NavLink>
             </div>
             <div className="sercg">
               {" "}
@@ -32,8 +34,6 @@ function Dash2() {
           </div>
 
           <div className="containerkdihd">
-            <Usercard />
-            <Usercard />
             <Usercard />
           </div>
         </div>

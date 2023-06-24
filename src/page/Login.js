@@ -50,7 +50,29 @@ function Login() {
 
   const navigate = useNavigate();
   const setUsername = useAuthStore((state) => state.setUsername);
+  const [userType , setUserType] = useState("");
+  const [secretKey , setSecretKey] =useState("");
+  const checkAdmin = async (e)=> {
+     if(userType === "Admin" && secretKey !== "hemanshur"){
+          e.preventDefault();
+          alert("Invalid USER");
+        }else{
+        e.preventDefault();
+          const { email ,password } = formik ;
+          const res = await fetch ('/signin' , {
+            method:"POST",
+            headers:{
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+               email , password
+            })
+          });
+          const data = await res.json ();
+          console.log(data);
 
+  }
+  }
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -78,7 +100,7 @@ function Login() {
           let { token } = res.data;
           localStorage.setItem("token", token);
           // console.log(values.password)
-          navigate("/dash");
+          navigate("/admin");
         })
         .catch((error) => {
           console.error(error);
@@ -111,6 +133,8 @@ function Login() {
                   id="c#2"
                   style={buttonStyle2}
                   onClick={() => handleButtonClick("c#2")}
+                  onChange={(e)=>setUserType(e.target.value)}
+
                 >
                   User
                 </button>
@@ -123,7 +147,11 @@ function Login() {
             >
               <div className="row1">
                 <div className="col-12">
-                  <form onSubmit={formik.handleSubmit}>
+                  <form onSubmit={formik.handleSubmit}  onChange={checkAdmin}>
+                  <div className="row1">
+                      <label>secretKey</label>
+                      <input {...formik.getFieldProps("SECERTKEY")} id="secertkey" />
+                    </div>
                     <div className="row1">
                       <label>Username</label>
                       <input {...formik.getFieldProps("username")} id="try" />
@@ -138,7 +166,7 @@ function Login() {
                       />
                     </div>
                     <div className="row1">
-                      <button type="submit" className="btn" id="login">
+                      <button type="submit" className="btn" id="login" onChange={(e) => setSecretKey(e.target.value)}>
                         Login
                       </button>
                     </div>

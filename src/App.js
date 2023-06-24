@@ -11,6 +11,8 @@ import Reset from "./page/Reset";
 import { AuthorizeUser } from "./middleware/auth";
 import Profile from "./page/Profile";
 import AdminDashboard from "./page/admin/AdminDashboard";
+import Adduser from "./page/addUser";
+import Update from "./page/update";
 
 //0dVHB07bJVuZltWl
 function App() {
@@ -29,7 +31,11 @@ function App() {
           <Route exact path="/pagenotfound" element={<PageNotFound />} />
           <Route exact path="/recover" element={<Recover />} />
           <Route exact path="/reset" element={<Reset />} />
-          <Route exact path="/admin" element={<AdminDashboard />} />
+          <Route exact path="/admin" element={<AdminDashboard />}/>
+            <Route  path="/update/:id" element={<Update/>}/>
+           
+          <Route exact path="/addUser" element={<Adduser/>}/>
+          
           
         </Routes>
       </div>
