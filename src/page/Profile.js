@@ -5,6 +5,7 @@ import './profile.css';
 
 function Profile() {
 
+
     const navigate = useNavigate();
 
     const handleShow = () => navigate("/");
