@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginValidation } from "../helper/validate";
 import { useAuthStore } from "../store/store";
 import { verifyPassword } from "../helper/helper";
+
 // import useFetch from "../hooks/fetch.hook";
 
 function Login() {
@@ -174,7 +175,7 @@ function Login() {
                   <div className="recovery">
                     <span className="tet">Forgot Password?</span>
                     <span>
-                      <Link className="tet2" to="/recover">
+                      <Link className="tet2" to="/emailverification">
                         {" "}
                         Recover now
                       </Link>
@@ -217,7 +218,7 @@ function Login() {
                   <div className="recovery">
                     <span className="tet">Forgot Password?</span>
                     <span>
-                      <Link className="tet2" to="/recover">
+                      <Link className="tet2" to="/emailverification">
                         {" "}
                         Recover now
                       </Link>

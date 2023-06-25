@@ -5,7 +5,12 @@ import './profile.css';
 
 function Profile() {
 
-  
+
+    const navigate = useNavigate();
+
+    const handleShow = () => navigate("/");
+    const handleClick = () => navigate("/about");
+    
     return (
         <div className="ulog">
           <div className="ubody2">

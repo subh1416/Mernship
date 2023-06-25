@@ -15,11 +15,13 @@ router.post("/authenticate", controller.verifyUser, (req, res) => {
 });
 
 router.post("/login", controller.verifyUser,controller.login);
+router.post("/emailin", controller.verifyEmail,controller.emailin);
 
 //GET method
-router.get("/user/:username", controller.getUser);
+router.get("/users/:username", controller.getUser);
+router.get("/user/:email", controller.getEmail);
 
-router.get("/generateOTP", controller.verifyUser,localVariables,controller.generateOTP);
+router.get("/generateOTP", controller.verifyEmail,localVariables,controller.generateOTP);
 
 router.get("/verifyOTP", controller.verifyOTP);
 

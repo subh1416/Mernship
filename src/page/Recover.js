@@ -8,26 +8,29 @@ import { generateOTP, verifyOTP } from "../helper/helper";
 
 function Recover() {
   const { username } = useAuthStore((state) => state.auth);
+  const { email } = useAuthStore((state) => state.auth);
   const [OTP, setOTP] = useState("");
   const [otpGenerated, setOTPGenerated] = useState(false);
   const navigate = useNavigate();
+  console.log(email)
+  console.log(username)
 
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      let { status } = await verifyOTP({ username, code: OTP });
+      let { status } = await verifyOTP({ email, code: OTP });
       if (status === 201) {
-        toast.success("Verify Successfully!");
+        toast.success("Verification Successful!");
         return navigate("/reset");
       }
     } catch (error) {
-      return toast.error("Wrong OTP! Check email again!");
+      return toast.error("Wrong OTP! Please check your email and try again.");
     }
   }
-
+  
   async function generateOTPOnClick() {
     try {
-      await toast.promise(generateOTP(username), {
+      await toast.promise(generateOTP(email), {
         loading: "Generating",
         success: () => {
           setOTP("");
@@ -35,15 +38,17 @@ function Recover() {
           return <b>OTP has been sent to your email</b>;
         },
         error: <b>Could not generate OTP</b>,
-      });
+      } );
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
 
+  
+
   async function resendOTP() {
     try {
-      await toast.promise(generateOTP(username), {
+      await toast.promise(generateOTP(email), {
         loading: "Sending",
         success: () => {
           setOTP("");
@@ -77,6 +82,7 @@ function Recover() {
                         id="try"
                       />
                     </div>
+                 
                     <div className="row">
                       {otpGenerated ? (
                         <button
