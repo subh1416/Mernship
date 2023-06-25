@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@300&family=Ubuntu&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=PT+Sans&family=PT+Serif&family=Poppins:wght@300&family=Ubuntu&display=swap');
 .html {
   /* background-color: white; */
   background-color: #d9d9d9;
@@ -11,33 +10,226 @@
 
 .homepage {
   font-family: 'Mulish', sans-serif;
-    background-color: rgb(250, 247, 239);
-  overflow: auto; /* Add this line */
+    background-color: white;
 }
 
-.homemain {
+:root {
+  --cards: 4;
+  --cardHeight: 80vh;
+  --cardTopPadding: 2.5em;
+  --cardMargin: 4vw;
+}
+
+.container9b53 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container98374 {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  flex-direction: column;
-  height: max-content;
-  /* margin-top: 30px; */
-  margin-bottom: 30vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 60px;
+  height: 80vh;
 }
 
-.alpha {
+.text97h {
+  flex: 1;
+  padding: 20px;
+}
+
+.despaji78 {
+  font-size: 3em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.lorum45 {
+  font-size: 16px;
+  color: #777;
+}
+
+.img9746cg {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+ 
+.img9746cg img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cards87n7b5 {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+  margin-bottom: var(--cardMargin);
+  /* width: 100%; */
+  
+}
+
+#card1 {
+  --index: 1;
+ 
+}
+#card2 {
+  --index: 2;
+ 
+
+}
+#card3 {
+  --index: 3;
+ 
+
+}
+#card4 {
+  --index: 4;
+
+
+}
+
+.cardn86 {
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+}
+
+#card1 .card-body89 {
+  background-color: #272640;
+}
+#card2 .card-body89 {
+  /* background-color: #7EC4CF; */
+  background-color: #3e607b;
+}
+#card3 .card-body89 {
+  background-color: #3d5c71;
+}
+#card4 .card-body89 {
+  background-color: #D4AFB9;
+}
+
+.card-body89 {
+  box-sizing: border-box;
+  /* padding: 30px; */
+  box-shadow: 30px;
+  border-radius: 50px;
+  height: var(--cardHeight);
   display: flex;
-  flex-direction: row;
-  background-color: white;
-  height: max-content;
-  border-radius: 30px;
-  margin: 50px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
 }
 
-.bl23 {
-  margin: 50px;
 
-  /* margin-top: 50px; */
+.textvhd {
+  flex: 1;
+  padding: 20px;
+  color: wheat;
+}
+
+.head4bj {
+  margin-bottom: 20px;
+  font-family: 'PT Serif', serif;
+  color: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+.khfojh {
+  font-size: 5em;
+  font-weight: bold;
+}
+
+.louoj56 p {
+  color: whitesmoke;
+  line-height: 1.5;
+  font-size: 1em;
+}
+
+.imgjhj {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 0 50px 50px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  
+  
+  
+}
+
+.imgjhj img {
+  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  border-radius: 0 50px 50px 0;
+
+}
+
+.hhdh89nhd{
+  background-color: #142850;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding-bottom: 50px;
+}
+
+.amet34{
+  display: block;
+  font-family: 'Mulish', sans-serif;  font-weight: normal;
+}
+
+.abc86{
+  font-size: 1em;
+  width: 5em;
+  display: inline-block;
+  font-family: 'PT Serif', serif;
+  /* color: #333; */
+  
+}
+
+.jjdo67 {
+  width: max-content;
+  font-size: 1em;
+  font-family: 'Mulish', sans-serif;
+    padding-right: 15px;
+}
+
+.buts {
+  margin-top: 20px;
+}
+
+.buts button {
+  padding: 10px 20px;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buts button:hover {
+  background-color: #2c387e;
+}
+
+.anv {
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
