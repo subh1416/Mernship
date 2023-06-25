@@ -41,17 +41,24 @@ function passwordVerify(error = {}, values){
     return error;
 }
 
-function emailVerify(error ={}, values){
-    if(!values.email){
-        error.email = toast.error("Email Required...!");
-    }else if(values.email.includes(" ")){
-        error.email = toast.error("Wrong Email...!")
-    }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
-        error.email = toast.error("Invalid email address...!")
-    }
 
-    return error;
+
+function emailVerify(errors = {}, values) {
+  if (!values.email) {
+    errors.email = 'Email Required...!';
+    toast.error('Email Required...!');
+  } else if (values.email.includes(' ')) {
+    errors.email = 'Wrong Email...!';
+    toast.error('Wrong Email...!');
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address...!';
+    toast.error('Invalid email address...!');
+  }
+
+  return errors;
 }
+
+  
 
 export async function loginValidation(values){
     const errors = usernameVerify({}, values);
@@ -66,6 +73,12 @@ export async function loginValidation(values){
         }
 
     }
+   
+
+    return errors;
+}
+export async function emailValidation(values){
+    const errors = emailVerify({}, values);
    
 
     return errors;
