@@ -32,10 +32,10 @@ function App() {
           <Route exact path="/dash2" element={<Dash2 />}/>
           <Route exact path="/profile" element={<Profile />}/>
           <Route exact path="/pagenotfound" element={<PageNotFound />} />
-          <Route exact path="/recover" element={<Recover />} />
+          <Route exact path="/recover" element={ <Recover />} />
           <Route exact path="/reset" element={<Reset />} />
 
-          <Route exact path="/admin" element={<AdminDashboard />}/>
+          <Route exact path="/admin" element={<AuthorizeUser> <AdminDashboard /> </AuthorizeUser>} />
             <Route exact path="/update/:id" element={<Update/>}/>
            
           <Route exact path="/addUser" element={<Adduser/>}/>

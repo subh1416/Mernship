@@ -12,7 +12,8 @@ import { useAuthStore } from '../store/store';
 
 
 function Reset() {
-  const {username} = useAuthStore(state => state.auth);
+  const {email} = useAuthStore(state => state.auth);
+  console.log(email)
   const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
@@ -26,10 +27,10 @@ function Reset() {
 
         onSubmit: async (values) => {
           console.log(values);
-          let resetPromise = resetPassword ({username , password: values.password})
+          let resetPromise = resetPassword ({email , password: values.password})
 
           toast.promise(resetPromise, {
-            loading: 'Upadating..',
+            loading: 'Updating',
             success : <b>Reset  Successfully</b>,
             error : <b> Could not reset</b>
           });

@@ -221,17 +221,17 @@ export async function resetPassword(req, res) {
     if (!req.app.locals.resetSession) {
       return res.status(440).send({ error: "session expired" });
     }
-    const { username, password } = req.body;
-    const user = await UserModel.findOne({ username });
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email });
 
     if (!user) {
-      return res.status(404).send({ error: "Username not found" });
+      return res.status(404).send({ error: "email not found" });
     }
 
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
       await UserModel.updateOne(
-        { username: user.username },
+        { email: user.email },
         { password: hashedPassword }
       );
 

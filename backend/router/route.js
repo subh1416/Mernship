@@ -30,6 +30,6 @@ router.get("/createResetSession", controller.createResetSession);
 //PUT method
 router.put("/updateuser", Auth,controller.updateUser);
 
-router.put("/resetPassword", controller.verifyUser ,controller.resetPassword);
+router.put("/resetPassword", controller.verifyEmail ,controller.resetPassword);
 
 export default router;
