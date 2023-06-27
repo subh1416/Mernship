@@ -8,6 +8,7 @@ export async function verifyUser(req, res, next) {
   try {
     const { username } = req.method == "GET" ? req.query : req.body;
     let exist = await UserModel.findOne({ username });
+    
     if (!exist) return res.status(404).send({ error: "Can't find user!" });
     next();
   } catch (error) {
@@ -27,7 +28,7 @@ export async function verifyEmail(req, res, next) {
 
 export async function register(req, res) {
   try {
-    const { username, password, profile, email } = req.body;
+    const { username, password, profile, email,UserType } = req.body;
 
     // Check the existing user
     const existingUsername = await UserModel.findOne({ username });
@@ -49,6 +50,7 @@ export async function register(req, res) {
         password: hashedPassword,
         profile: profile || "",
         email,
+        UserType
       });
 
       // Save the user to the database
@@ -64,7 +66,7 @@ export async function register(req, res) {
 }
 
 export async function login(req, res) {
-  const { username, password } = req.body;
+  const { username, password, UserType } = req.body;
 
   try {
     await UserModel.findOne({ username })
@@ -79,14 +81,17 @@ export async function login(req, res) {
               {
                 userId: user._id,
                 username: user.username,
+                userType: user.UserType
               },
               ENV.JWT_SECRET,
               { expiresIn: "24h" }
             );
+            console.log("")
 
             return res.status(200).send({
               msg: "Login succesfull",
               username: user.username,
+              userType: user.UserType,
               token,
             });
           })
@@ -124,7 +129,9 @@ export async function emailin(req, res) {
 }
 
 export async function getUser(req, res) {
-  const { username } = req.params;
+  const { username } = req.query;
+
+
 
   try {
     if (!username) return res.status(501).send({ error: "Invalid Username" });
@@ -147,6 +154,8 @@ export async function getUser(req, res) {
       .send({ error: "Cannot Find User Data through username" });
   }
 }
+
+
 export async function getEmail(req, res) {
   const { email } = req.params;
 

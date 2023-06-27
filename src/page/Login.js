@@ -18,36 +18,6 @@ function Login() {
     "c#2": false,
   });
 
-  const handleButtonClick = (id) => {
-    if (id === "c#1") {
-      setButtonColor("#142850");
-      setButton2Color("white");
-      setIsClicked({
-        "c#1": true,
-        "c#2": false,
-      });
-      console.log("yt");
-    } else if (id === "c#2") {
-      setButtonColor("white");
-      setButton2Color("#142850");
-      setIsClicked({
-        "c#1": false,
-        "c#2": true,
-      });
-      console.log("uu");
-    }
-    // setIsClicked(true);
-  };
-
-  const buttonStyle = {
-    backgroundColor: buttonColor,
-    color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
-  };
-  const buttonStyle2 = {
-    backgroundColor: button2Color,
-    color: isClicked && button2Color === "white" ? "#142850" : "white",
-  };
-
   const navigate = useNavigate();
   const setUsername = useAuthStore((state) => state.setUsername);
 
@@ -55,6 +25,8 @@ function Login() {
     initialValues: {
       username: "",
       password: "",
+      UserType: "admin"
+
     },
     validate: loginValidation,
     validateOnBlur: false,
@@ -66,6 +38,8 @@ function Login() {
       let loginPromise = verifyPassword({
         username: values.username,
         password: values.password,
+        
+
       });
       toast.promise(loginPromise, {
         loading: "Checking",
@@ -78,13 +52,49 @@ function Login() {
           let { token } = res.data;
           localStorage.setItem("token", token);
           // console.log(values.password)
-          navigate("/admin");
+          if (values.UserType === "admin") {
+            navigate("/admin");
+          } else if (values.UserType === "user") {
+            navigate("/User");
+          }
         })
         .catch((error) => {
           console.error(error);
         });
     },
   });
+
+
+  const handleButtonClick = (id) => {
+    if (id === "c#1") {
+      setButtonColor("#142850");
+      setButton2Color("white");
+      setIsClicked({
+        "c#1": true,
+        "c#2": false,
+      });
+      formik.setFieldValue("UserType", "admin");
+    } else if (id === "c#2") {
+      setButtonColor("white");
+      setButton2Color("#142850");
+      setIsClicked({
+        "c#1": false,
+        "c#2": true,
+      });
+      formik.setFieldValue("UserType", "user");
+    }
+  };
+
+
+  const buttonStyle = {
+    backgroundColor: buttonColor,
+    color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
+  };
+  const buttonStyle2 = {
+    backgroundColor: button2Color,
+    color: isClicked && button2Color === "white" ? "#142850" : "white",
+  };
+
 
   return (
     <div className="log">
@@ -95,26 +105,49 @@ function Login() {
           <div className="p-5 ">
             <center><h2 className="my-3">Welcome Again!</h2></center>
             <div className="rectangle">
-              <div className="admin">
-                <button
-                  className="bu1"
-                  id="c#1"
-                  style={buttonStyle}
-                  onClick={() => handleButtonClick("c#1")}
-                >
-                  Admin
-                </button>
+
+            <div className={`admin ${formik.values.UserType === "admin" ? "active" : ""}`}>
+                <label htmlFor="adminRadio">
+                  <input
+                    type="radio"
+                    id="adminRadio"
+                    name="UserType"
+                    value="admin"
+                    checked={formik.values.UserType === "admin"}
+                    onChange={formik.handleChange}
+                  />
+                  <button
+                    className="bu1"
+                    id="c#1"
+                    style={buttonStyle}
+                    onClick={() => handleButtonClick("c#1")}
+                  >
+                    Admin
+                  </button>
+                </label>
               </div>
-              <div className="user">
-                <button
-                  className="bu2"
-                  id="c#2"
-                  style={buttonStyle2}
-                  onClick={() => handleButtonClick("c#2")}
-                >
-                  User
-                </button>
+
+              <div className={`user ${formik.values.UserType === "user" ? "active" : ""}`}>
+                <label htmlFor="userRadio">
+                  <input
+                    type="radio"
+                    id="userRadio"
+                    name="UserType"
+                    value="user"
+                    checked={formik.values.UserType === "user"}
+                    onChange={formik.handleChange}
+                  />
+                  <button
+                    className="bu2"
+                    id="c#2"
+                    style={buttonStyle2}
+                    onClick={() => handleButtonClick("c#2")}
+                  >
+                    User
+                  </button>
+                </label>
               </div>
+
             </div>
             <div
               className={`admin_login ${
@@ -126,7 +159,7 @@ function Login() {
                   <form onSubmit={formik.handleSubmit}>
                     <div className="row1">
                       <label>Username</label>
-                      <input {...formik.getFieldProps("username")} id="try" />
+                      <input {...formik.getFieldProps("username")} name="username" id="try" />
                     </div>
 
                     <div className="row1">
@@ -169,6 +202,7 @@ function Login() {
                         {...formik.getFieldProps("username")}
                         type="text"
                         id="try"
+                        name="username" 
                       />
                     </div>
 

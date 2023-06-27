@@ -26,14 +26,17 @@ export async function authenticate(username){
 }
 
 /** get User details */
-export async function getUser({ username }){
+export async function getUser(username) {
     try {
-        const { data } = await axios.get(`/api/users/${username}`);
-        return { data };
+      const { data } = await axios.get(`/api/users/?username=${username}`);
+      console.log(data);
+      return { data };
     } catch (error) {
-        return { error : "Password doesn't Match...!"}
+      return { error: "Password doesn't Match...!" };
     }
-}
+  }
+  
+
 export async function getEmail({ email }){
     try {
         const { data } = await axios.get(`/api/user/${email}`);
@@ -48,11 +51,11 @@ export async function registerUser(credentials){
     try {
         const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
 
-        let { username, email } = credentials;
+        let { username, email,UserType } = credentials;
 
         /** send email */
         if(status === 201){
-            await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
+            await axios.post('/api/registerMail', { username, userEmail : email,UserType, text : msg})
         }
 
         return Promise.resolve(msg)

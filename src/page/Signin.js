@@ -16,29 +16,27 @@ function Signin() {
     "c#2": false,
   });
 
-  // const navigate = useNavigate() 
-  // import useNavigate as well
-
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
       confirmpassword: "",
+      UserType: "admin",
     },
     validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
+      
       console.log(values);
-      values = await Object.assign(values)
-      let registerPromise = registerUser(values)
+      values = await Object.assign(values);
+      let registerPromise = registerUser(values);
       toast.promise(registerPromise, {
-        loading: 'Creating',
-        success: <b>Registered Succesfully</b>,
-        error : <b>Could not register</b>
+        loading: "Creating",
+        success: <b>Registered Successfully</b>,
+        error: <b>Could not register</b>,
       });
-      // registerPromise.then(function(){navigate('/')})
     },
   });
 
@@ -50,6 +48,7 @@ function Signin() {
         "c#1": true,
         "c#2": false,
       });
+      formik.setFieldValue("UserType", "admin");
     } else if (id === "c#2") {
       setButtonColor("white");
       setButton2Color("#142850");
@@ -57,13 +56,15 @@ function Signin() {
         "c#1": false,
         "c#2": true,
       });
+      formik.setFieldValue("UserType", "user");
     }
-    // setIsClicked(true);
   };
+
   const buttonStyle = {
     backgroundColor: buttonColor,
     color: isClicked && buttonColor === "#142850" ? "white" : "#142850",
   };
+
   const buttonStyle2 = {
     backgroundColor: button2Color,
     color: isClicked && button2Color === "white" ? "#142850" : "white",
@@ -78,26 +79,49 @@ function Signin() {
           <div className="p-5 ">
             <h2 className="my-3">Register</h2>
             <div className="rectangle">
-              <div className="admin">
-                <button
-                  className="bu1"
-                  id="c#1"
-                  style={buttonStyle}
-                  onClick={() => handleButtonClick("c#1")}
-                >
-                  Admin
-                </button>
+
+              <div className={`admin ${formik.values.UserType === "admin" ? "active" : ""}`}>
+                <label htmlFor="adminRadio">
+                  <input
+                    type="radio"
+                    id="adminRadio"
+                    name="UserType"
+                    value="admin"
+                    checked={formik.values.UserType === "admin"}
+                    onChange={formik.handleChange}
+                  />
+                  <button
+                    className="bu1"
+                    id="c#1"
+                    style={buttonStyle}
+                    onClick={() => handleButtonClick("c#1")}
+                  >
+                    Admin
+                  </button>
+                </label>
               </div>
-              <div className="user">
-                <button
-                  className="bu2"
-                  id="c#2"
-                  style={buttonStyle2}
-                  onClick={() => handleButtonClick("c#2")}
-                >
-                  User
-                </button>
+
+              <div className={`user ${formik.values.UserType === "user" ? "active" : ""}`}>
+                <label htmlFor="userRadio">
+                  <input
+                    type="radio"
+                    id="userRadio"
+                    name="UserType"
+                    value="user"
+                    checked={formik.values.UserType === "user"}
+                    onChange={formik.handleChange}
+                  />
+                  <button
+                    className="bu2"
+                    id="c#2"
+                    style={buttonStyle2}
+                    onClick={() => handleButtonClick("c#2")}
+                  >
+                    User
+                  </button>
+                </label>
               </div>
+
             </div>
             <div
               className={`admin_login ${
@@ -132,7 +156,7 @@ function Signin() {
                       />
                     </div>
                     <div className="row1">
-                      <label> Confirm Password</label>
+                      <label>Confirm Password</label>
                       <input
                         {...formik.getFieldProps("confirmpassword")}
                         type="password"
@@ -140,7 +164,7 @@ function Signin() {
                       />
                     </div>
                     <div className="row1">
-                      <button type="submit" className="btn" id="login" >
+                      <button type="submit" className="btn" id="login">
                         Register
                       </button>
                     </div>
@@ -154,38 +178,50 @@ function Signin() {
                 isClicked["c#2"] ? "transition active" : ""
               }`}
             >
-              <div className="row1">
-                <div className="col-12">
-                  <div className="row1">
-                    <label>First Name</label>
-                    <input type="text" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label>Last Name</label>
-                    <input type="text" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label>Email</label>
-                    <input type="email" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label>Password</label>
-                    <input type="text" id="try" />
-                  </div>
-                  <div className="row1">
-                    <label> Confirm Password</label>
-                    <input type="password" id="try" />
-                  </div>
-                  <div className="row1">
-                    <button type="submit" className="btn" id="login" href="">
-                      <Link to="/dash" className="des">
-                        Login
-                      </Link>
-                    </button>
+                            <form onSubmit={formik.handleSubmit}>
+                <div className="row1">
+                  <div className="col-12">
+                    <div className="row1">
+                      <label>Name</label>
+                      <input
+                        {...formik.getFieldProps("username")}
+                        type="text"
+                        id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <label>Email</label>
+                      <input
+                        {...formik.getFieldProps("email")}
+                        type="email"
+                        id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <label>Password</label>
+                      <input
+                        {...formik.getFieldProps("password")}
+                        type="text"
+                        id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <label>Confirm Password</label>
+                      <input
+                        {...formik.getFieldProps("confirmpassword")}
+                        type="password"
+                        id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <button type="submit" className="btn" id="login">
+                        Register
+                      </button>
+                    </div>
                   </div>
                 </div>
+              </form>
               </div>
-            </div>
           </div>
         </section>
       </div>

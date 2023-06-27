@@ -45,6 +45,10 @@
   margin-bottom: 1.5rem;
 }
 
+.rectangle input{
+  display: none;
+}
+
 .admin .bu1,
 .user .bu2 {
   width: 134px;

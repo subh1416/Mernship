@@ -16,10 +16,10 @@ export const UserSchema = new mongoose.Schema({
         required : [true, "Please provide a unique email"],
         unique: true,
     },
-    // UserType:{
-    //     type:String,
-    //     required:[true],
-    // },
+    UserType:{
+        type:String,
+        required:[true, 'Please mention your role'],
+    },
     firstName: { type: String},
     lastName: { type: String},
     mobile : { type : Number},

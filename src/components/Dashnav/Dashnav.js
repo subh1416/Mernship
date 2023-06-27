@@ -1,8 +1,14 @@
 import React from "react";
 import "./Dashnav.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Dashnav({ activeLink, handleLinkClick }) {
+  const navigate = useNavigate();
+      function userLogout(){
+        localStorage.removeItem('token');
+        navigate('/');
+      }
   return (
     <div className="das23">
       <div className="prof">
@@ -45,9 +51,9 @@ function Dashnav({ activeLink, handleLinkClick }) {
       </div>
 
       <div className="logout3">
-        <Link className="bhola1" href="#">
+        <button onClick={userLogout} className="bhola1" href="#">
           Logout
-        </Link>
+        </button>
       </div>
     </div>
   );
