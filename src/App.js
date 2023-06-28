@@ -10,6 +10,8 @@ import Recover from "./page/Recover";
 import Reset from "./page/Reset";
 import { AuthorizeUser } from "./middleware/auth";
 import Profile from "./page/Profile";
+import AddWork from "./page/AddWork";
+import Previous from "./page/Previous";
 import AdminDashboard from "./page/admin/AdminDashboard";
 import Userdashboard from "./page/user/Userdashboard";
 import Adduser from "./page/addUser";
@@ -30,6 +32,8 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/dash2" element={<Dash2 />}/>
           <Route exact path="/profile" element={<Profile />}/>
+          <Route exact path="/addwork" element={<AddWork />}/>
+          <Route exact path="/previous" element={<Previous />}/>
           <Route exact path="/pagenotfound" element={<PageNotFound />} />
           <Route exact path="/recover" element={ <Recover />} />
           <Route exact path="/reset" element={<Reset />} />
