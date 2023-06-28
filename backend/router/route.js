@@ -1,35 +1,40 @@
-import { Router } from "express";
-const router = Router();
-import * as controller from "../controller/appController.js";
-import Auth,{localVariables} from "../middleware/auth.js";
-import { registerMail } from "../controller/mailer.js";
+import { Router } from 'express'
+const router = Router()
+import * as controller from '../controller/appController.js'
+import Auth, { localVariables } from '../middleware/auth.js'
+import { registerMail } from '../controller/mailer.js'
+import sendEmail from '../utils/send-email.js'
 
 // POST Method
-router.post("/register", controller.register);
+router.post('/register', controller.register)
 
+router.post('/registerMail', registerMail)
+router.post('/authenticate', controller.verifyUser, (req, res) => {
+  res.end()
+})
 
-router.post("/registerMail", registerMail
-);
-router.post("/authenticate", controller.verifyUser, (req, res) => {
-  res.end();
-});
-
-router.post("/login", controller.verifyUser,controller.login);
-router.post("/emailin", controller.verifyEmail,controller.emailin);
+router.post('/login', controller.verifyUser, controller.login)
+router.post('/emailin', controller.verifyEmail, controller.emailin)
+router.post('/contact', sendEmail)
 
 //GET method
-router.get("/users/:username", controller.getUser);
-router.get("/user/:email", controller.getEmail);
+router.get('/users/:username', controller.getUser)
+router.get('/user/:email', controller.getEmail)
 
-router.get("/generateOTP", controller.verifyEmail,localVariables,controller.generateOTP);
+router.get(
+  '/generateOTP',
+  controller.verifyEmail,
+  localVariables,
+  controller.generateOTP
+)
 
-router.get("/verifyOTP", controller.verifyOTP);
+router.get('/verifyOTP', controller.verifyOTP)
 
-router.get("/createResetSession", controller.createResetSession);
+router.get('/createResetSession', controller.createResetSession)
 
 //PUT method
-router.put("/updateuser", Auth,controller.updateUser);
+router.put('/updateuser', Auth, controller.updateUser)
 
-router.put("/resetPassword", controller.verifyEmail ,controller.resetPassword);
+router.put('/resetPassword', controller.verifyEmail, controller.resetPassword)
 
-export default router;
+export default router

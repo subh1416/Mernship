@@ -1,0 +1,23 @@
+#card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+#name {
+  height: 40px;
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#email {
+  height: 40px;
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#message {
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
