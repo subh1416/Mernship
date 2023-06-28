@@ -9,12 +9,7 @@ import { registerValidation } from "../helper/validate";
 import { registerUser } from "../helper/helper";
 
 function Signin() {
-  const [buttonColor, setButtonColor] = useState("#142850");
-  const [button2Color, setButton2Color] = useState("white");
-  const [isClicked, setIsClicked] = useState({
-    "c#1": true,
-    "c#2": false,
-  });
+
 
   const formik = useFormik({
     initialValues: {
@@ -23,6 +18,7 @@ function Signin() {
       password: "",
       confirmpassword: "",
       UserType: "admin",
+      secretkey: ""
     },
     validate: registerValidation,
     validateOnBlur: false,
@@ -38,6 +34,13 @@ function Signin() {
         error: <b>Could not register</b>,
       });
     },
+  });
+
+  const [buttonColor, setButtonColor] = useState("#142850");
+  const [button2Color, setButton2Color] = useState("white");
+  const [isClicked, setIsClicked] = useState({
+    "c#1": true,
+    "c#2": false,
   });
 
   const handleButtonClick = (id) => {
@@ -135,6 +138,14 @@ function Signin() {
                       <label>Name</label>
                       <input
                         {...formik.getFieldProps("username")}
+                        type="text"
+                        id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <label>Secret Key</label>
+                      <input
+                        {...formik.getFieldProps("secretkey")}
                         type="text"
                         id="try"
                       />

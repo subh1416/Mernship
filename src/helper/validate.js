@@ -59,17 +59,14 @@ export async function loginValidation(values) {
   if (values.username) {
     const { status } = await authenticate(values.username);
     const { data } = await getUser(values.username);
-    console.log(data)
-    console.log(status)
-    console.log(values.username)
-
+    console.log(data);
+    console.log(status);
+    console.log(values.username);
 
     if (status !== 200) {
       errors.exist = toast.error("user doest not exists");
-    }
-    else if(data.UserType !== values.UserType){
-      errors.exist = toast.error("please choose valid role")
-
+    } else if (data.UserType !== values.UserType) {
+      errors.exist = toast.error("please choose valid role");
     }
   }
 
@@ -94,6 +91,15 @@ export async function resetPasswordValidation(values) {
 
 export async function registerValidation(values) {
   const errors = usernameVerify({}, values);
+
+  if (values.UserType === "admin") {
+    // Add the secret key validation logic here
+    const Key = "subh1234"; // Replace with your actual secret key
+    if (values.secretkey !== Key) {
+      errors.secretKey =toast.error("Invalid secret key");
+    }
+  }
+
   passwordVerify(errors, values);
   if (values.password !== values.confirmpassword) {
     errors.exist = toast.error("Password not match");
