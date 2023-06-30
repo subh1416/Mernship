@@ -17,7 +17,6 @@ router.post("/emailin", controller.verifyEmail, controller.emailin);
 //GET method
 router.get("/users/", controller.getUser);
 router.get("/user/:email", controller.getEmail);
-
 router.get(
   "/generateOTP",
   controller.verifyEmail,

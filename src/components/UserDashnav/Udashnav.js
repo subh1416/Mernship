@@ -1,10 +1,30 @@
-import React from "react";
+import React,{useState , useEffect} from "react";
 import "./Udashnav.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { getUsername , getUser } from "../../helper/helper";
 
 function UDashnav({ activeLink, handleLinkClick }) {
   const navigate = useNavigate();
+  
+  const [name, setName] = useState('');
+      const [uname , setUname] = useState('');
+    
+      useEffect(() => {
+        const fetchUsername = async () => {
+          try {
+            const name = await getUsername();
+            setName(name);
+            const uname = await getUser(name.username);
+            setUname(uname.data);
+          } catch (error) {
+            console.error('Error retrieving username:', error);
+          }
+        };
+    
+        fetchUsername();
+      }, []);
+  
       function userLogout(){
         localStorage.removeItem('token');
         navigate('/');
@@ -14,8 +34,8 @@ function UDashnav({ activeLink, handleLinkClick }) {
       <div className="prof">
         <div className="social" id="social1"></div>
         <div className="nam2">
-          <span className="name">Raj Batliwala</span>
-          <span className="gname">rajbatliwala23@gmail.com</span>
+          <span className="name">{uname.username}</span>
+          <span className="gname">{uname.email}</span>
         </div>
       </div>
       <div className="lis2">
