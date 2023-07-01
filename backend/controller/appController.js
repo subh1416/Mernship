@@ -81,7 +81,7 @@ export async function login(req, res) {
               {
                 userId: user._id,
                 username: user.username,
-                userType: user.UserType
+                userType: user.UserType,
               },
               ENV.JWT_SECRET,
               { expiresIn: "24h" }
@@ -254,3 +254,5 @@ export async function resetPassword(req, res) {
     return res.status(500).send({ error: error.message });
   }
 }
+
+

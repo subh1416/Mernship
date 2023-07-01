@@ -1,16 +1,34 @@
 import {useNavigate} from 'react-router-dom';
-import React from 'react';
+import React, {useState , useEffect} from 'react';
 import toast, { Toaster } from "react-hot-toast";
 import './profile.css';
+import {getUsername , getUser} from '../helper/helper'
 
 function Profile() {
+    let history = useNavigate();
+    const [name, setName] = useState('');
+    const [uname , setUname] = useState('');
+  
+    useEffect(() => {
+      const fetchUsername = async () => {
+        try {
+          const name = await getUsername();
+          setName(name);
+          const uname = await getUser(name.username);
+          setUname(uname.data);
+        } catch (error) {
+          console.error('Error retrieving username:', error);
+        }
+      };
+  
+      fetchUsername();
+    }, []);
 
+    // console.log(uname);
 
-    const navigate = useNavigate();
-
-    const handleShow = () => navigate("/");
-    const handleClick = () => navigate("/about");
-    
+    const Updateuser =async (id) =>{
+      history(`/update/${id}`);
+    }
     return (
         <div className="ulog">
           <div className="ubody2">
@@ -30,7 +48,7 @@ function Profile() {
                           <label>Name: </label>
                         </div>
                         <div className='col-6'>
-                          <label>username</label>
+                          <label>{name.username}</label>
                         </div>
                       </div>
                       <div className='urow1'>
@@ -38,7 +56,7 @@ function Profile() {
                           <label>Email: </label>
                         </div>
                         <div className='col-6'>
-                          <label>useremail</label>
+                          <label>{uname.email}</label>
                         </div>
                       </div>
                       <div className='urow1'>
@@ -46,7 +64,7 @@ function Profile() {
                           <label>Mobile Number: </label>
                         </div>
                         <div className='col-6'>
-                          <label>usermobilenumber</label>
+                          <label>{uname.mobile}</label>
                         </div>
                       </div>
                       <div className='urow1'>
@@ -54,11 +72,11 @@ function Profile() {
                           <label>Address: </label>
                         </div>
                         <div className='col-6'>
-                          <label>useraddress</label>
+                          <label>{uname.address}</label>
                         </div>
                       </div>
                       <div className='urow1'>
-                        <button type="submit" className="ubtn" id="login">
+                        <button type="submit" className="ubtn" id="login" onClick={ () => Updateuser(uname._id)}>
                           Update
                         </button>
                       </div>
