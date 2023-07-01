@@ -32,10 +32,13 @@ function Dashnav({ activeLink, handleLinkClick }) {
   return (
     <div className="das23">
       <div className="prof">
-        <div className="social" id="social1"></div>
+        <div className="social" id="social1" >
+        <img src= {`./uploads/${uname.imgpath}`}  id="img1"  ></img>
+        </div>
         <div className="nam2">
           <span className="name">{name.username}</span>
           <span className="gname">{uname.email}</span>
+
         </div>
       </div>
       <div className="lis2">

@@ -47,23 +47,32 @@ export async function getEmail({ email }){
 }
 
 /** register user function */
-export async function registerUser(credentials){
+export async function registerUser(credentials) {
     try {
-        const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
-
-        let { username, email,UserType } = credentials;
-
-        /** send email */
-        if(status === 201){
-            await axios.post('/api/registerMail', { username, userEmail : email,UserType, text : msg})
-        }
-
-        return Promise.resolve(msg)
+      const { selectfile, ...restCredentials } = credentials;
+  
+      const formData = new FormData();
+      formData.append('selectfile', selectfile);
+      
+      for (let key in restCredentials) {
+        formData.append(key, restCredentials[key]);
+      }
+  
+      const { data: { msg }, status } = await axios.post(`/api/register`, formData);
+  
+      let { username, email, UserType } = restCredentials;
+  
+      /** send email */
+      if (status === 201) {
+        await axios.post('/api/registerMail', { username, userEmail: email, UserType, text: msg });
+      }
+  
+      return Promise.resolve(msg);
     } catch (error) {
-        return Promise.reject({ error })
+      return Promise.reject({ error });
     }
-}
-
+  }
+  
 /** login function */
 export async function verifyPassword({ username, password }){
     try {

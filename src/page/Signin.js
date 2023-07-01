@@ -17,6 +17,7 @@ function Signin() {
       email: "",
       password: "",
       confirmpassword: "",
+      selectfile:null,
       UserType: "admin",
       secretkey: ""
     },
@@ -172,6 +173,20 @@ function Signin() {
                         {...formik.getFieldProps("confirmpassword")}
                         type="password"
                         id="try"
+                      />
+                    </div>
+                    <div className="row1">
+                      <label>Select a file</label>
+                      <input
+                        //{...formik.getFieldProps("selectfile")}
+                        type="file"
+                        id="try"
+                        onChange={(event) => {
+                          formik.setFieldValue(
+                            "selectfile",
+                            event.currentTarget.files[0]
+                          );
+                        }}
                       />
                     </div>
                     <div className="row1">
