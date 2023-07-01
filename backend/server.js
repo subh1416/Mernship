@@ -22,6 +22,8 @@ app.get('/', (req,res)=>{
 app.use('/api',router)
 app.use(routers)
 
+app.use("/uploads",express.static("./uploads"));
+
 connect().then(()=>{
     try {
         app.listen(port,()=>{

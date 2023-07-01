@@ -28,6 +28,7 @@ export async function verifyEmail(req, res, next) {
 
 export async function register(req, res) {
   try {
+    const {filename} = req.file ;
     const { username, password, profile, email,UserType } = req.body;
 
     // Check the existing user
@@ -50,6 +51,7 @@ export async function register(req, res) {
         password: hashedPassword,
         profile: profile || "",
         email,
+        imgpath:filename,
         UserType
       });
 
