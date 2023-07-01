@@ -14,8 +14,8 @@ function UDashnav({ activeLink, handleLinkClick }) {
       <div className="prof">
         <div className="social" id="social1"></div>
         <div className="nam2">
-          <span className="name">Raj Batliwala</span>
-          <span className="gname">rajbatliwala23@gmail.com</span>
+          <span className="name">James Curie</span>
+          <span className="gname">jamescurie99@gmail.com</span>
         </div>
       </div>
       <div className="lis2">
@@ -41,10 +41,10 @@ function UDashnav({ activeLink, handleLinkClick }) {
           <li>
             <Link
               // to="/profile"
-              className={activeLink === "previous" ? "bhola active" : "bhola"}
-              onClick={() => handleLinkClick("previous")}
+              className={activeLink === "activity" ? "bhola active" : "bhola"}
+              onClick={() => handleLinkClick("activity")}
             >
-              Previous Activity
+             Activity
             </Link>
           </li>
           <li>

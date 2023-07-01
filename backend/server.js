@@ -4,8 +4,14 @@ import morgan from 'morgan';
 import connect from './database/connection.js';
 import router from './router/route.js';
 import routers from './router/adminroute.js';
+import routerss from './router/userroute.js'
+ import bodyParser from 'body-parser';          // copy and paste it in fileupload.js     
+// import methodOverride from 'method-override'   // this is used to delete request for uploaded file
 const app = express();
 
+
+ app.use(bodyParser.json())               // copy and paste it in fileupload.js
+// app.use(methodOverride('_method'))
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
@@ -21,6 +27,7 @@ app.get('/', (req,res)=>{
 
 app.use('/api',router)
 app.use(routers)
+app.use('/api',routerss)
 
 connect().then(()=>{
     try {

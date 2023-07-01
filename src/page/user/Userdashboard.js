@@ -1,5 +1,5 @@
 import AddWork from "../AddWork";
-import Previous from "../Previous";
+import Activity from "../Activity";
 import Profile from "../Profile";
 // import Settings from "./Settings";
 import UDashnav from "../../components/UserDashnav/Udashnav";
@@ -23,8 +23,8 @@ function Userdashboard() {
         return <Profile />;
       case "addwork":
         return <AddWork />;
-      case "previous":
-         return <Previous />;
+      case "activity":
+         return <Activity />;
       
       default:
         return null;
