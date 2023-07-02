@@ -20,29 +20,29 @@ import connect from '../database/connection.js';
 // });
 // })
 
-const ObjectID = mongodb.ObjectID;
+// const ObjectID = mongodb.ObjectID;
 
-// Get the MongoDB database object
-const db = await connect();
+// // Get the MongoDB database object
+// const db = await connect();
 
-// Get the GridFSBucket instance
-const bucket = new mongodb.GridFSBucket(db);
+// // Get the GridFSBucket instance
+// const bucket = new mongodb.GridFSBucket(db);
 
-routerss.get('/files', (req, res) => {
-  bucket.find({}).toArray((err, files) => {
-    if (err) {
-      return res.status(500).json({ message: 'Error retrieving files' });
-    }
-    return res.json(files);
-  });
-});
+// routerss.get('/files', (req, res) => {
+//   bucket.find({}).toArray((err, files) => {
+//     if (err) {
+//       return res.status(500).json({ message: 'Error retrieving files' });
+//     }
+//     return res.json(files);
+//   });
+// });
 
-// Get a specific file by ID
-routerss.get('/files/:id', (req, res) => {
-  const fileId = new ObjectID(req.params.id);
-  const downloadStream = bucket.openDownloadStream(fileId);
-  downloadStream.pipe(res);
-});
+// // Get a specific file by ID
+// routerss.get('/files/:id', (req, res) => {
+//   const fileId = new ObjectID(req.params.id);
+//   const downloadStream = bucket.openDownloadStream(fileId);
+//   downloadStream.pipe(res);
+// });
 
 
 routerss.post('/upload', gridStorage.single('file'), (req, res) => {
@@ -59,16 +59,16 @@ routerss.post('/upload', gridStorage.single('file'), (req, res) => {
   }
 }); 
 
-// Delete a file by ID
-routerss.delete('/files/:id', (req, res) => {
-  const fileId = new ObjectID(req.params.id);
-  bucket.delete(fileId, (err) => {
-    if (err) {
-      return res.status(500).json({ message: 'Error deleting file' });
-    }
-    return res.status(200).json({ message: 'File deleted successfully' });
-  });
-});
+// // Delete a file by ID
+// routerss.delete('/files/:id', (req, res) => {
+//   const fileId = new ObjectID(req.params.id);
+//   bucket.delete(fileId, (err) => {
+//     if (err) {
+//       return res.status(500).json({ message: 'Error deleting file' });
+//     }
+//     return res.status(200).json({ message: 'File deleted successfully' });
+//   });
+// });
 
 
 export default routerss;
