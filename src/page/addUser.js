@@ -17,14 +17,14 @@ const handle = (e) => {
 
   const adddata = async(e) =>{
     e.preventDefault();
-    const {username, email ,mobile ,password, address} = user;
+    const {username, email ,mobile , address} = user;
     const res = await fetch ('/addUser' , {
       method:"POST",
       headers:{
         "Content-Type":"application/json"
       },
       body:JSON.stringify({
-        username, email ,mobile ,password , address
+        username, email ,mobile , address
       })
     });
     const data = await res.json ();
@@ -58,10 +58,10 @@ const handle = (e) => {
     <label for="exampleInputPassword1" className="form-label">mobile</label>
     <input type="text" className="form-control" id="exampleInputPassword1" name='mobile' value={user.mobile} onChange={handle}/>
   </div>
-  <div className="mb-3 col-lg-6 col-md-6 col-12">
+  {/* <div className="mb-3 col-lg-6 col-md-6 col-12">
     <label for="exampleInputPassword1" className="form-label">password</label>
     <input type="password" className="form-control" id="exampleInputPassword1" name='password' value={user.password} onChange={handle}/>
-  </div>
+  </div> */}
   <div className="mb-3 col-lg-6 col-md-6 col-12">
     <label for="exampleInputPassword1" className="form-label">Addres</label>
     <input type="text" className="form-control" id="exampleInputPassword1" name='address' value={user.address} onChange={handle}/>

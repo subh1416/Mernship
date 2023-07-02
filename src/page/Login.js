@@ -115,6 +115,7 @@ function Login() {
                     value="admin"
                     checked={formik.values.UserType === "admin"}
                     onChange={formik.handleChange}
+                    className="ui89"
                   />
                   <button
                     className="bu1"
@@ -136,6 +137,7 @@ function Login() {
                     value="user"
                     checked={formik.values.UserType === "user"}
                     onChange={formik.handleChange}
+                    className="ui89"
                   />
                   <button
                     className="bu2"

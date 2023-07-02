@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './addwork.css';
 import axios from 'axios'
@@ -39,10 +40,12 @@ function AddWork() {
     } else {
       alert('Please select a file and provide a description.');
     }
+
   };
   return (
     <div>
       <h1>Add Work</h1>
+
       <input type="file" onChange={handleFileChange} />
       <br />
       <textarea
@@ -52,6 +55,7 @@ function AddWork() {
       ></textarea>
       <br />
       <button onClick={handleUpload}>Upload</button>
+
     </div>
   );
 }
@@ -99,3 +103,5 @@ export default AddWork;
 // // }
 
 // // export default AddWork
+
+

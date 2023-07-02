@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/Footer/Footer";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Signin.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { registerValidation } from "../helper/validate";
 import { registerUser } from "../helper/helper";
+import avatar from "../assets/profile.png";
+import convertToBase64 from "../helper/convert";
 
 function Signin() {
-
-
+  const [file, setFile] = useState();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -18,15 +19,15 @@ function Signin() {
       password: "",
       confirmpassword: "",
       UserType: "admin",
-      secretkey: ""
+      secretkey: "",
     },
     validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
+    
     onSubmit: async (values) => {
-      
       console.log(values);
-      values = await Object.assign(values);
+      values = await Object.assign(values, { profile: file || "" });
       let registerPromise = registerUser(values);
       toast.promise(registerPromise, {
         loading: "Creating",
@@ -35,6 +36,11 @@ function Signin() {
       });
     },
   });
+
+  const onUpload = async (e) => {
+    const base64 = await convertToBase64(e.target.files[0]);
+    setFile(base64);
+  };
 
   const [buttonColor, setButtonColor] = useState("#142850");
   const [button2Color, setButton2Color] = useState("white");
@@ -79,11 +85,14 @@ function Signin() {
       <div className="body3">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <section className="alpha3   box-shadow">
-          <div className="p-5 ">
-            <h2 className="my-3">Register</h2>
-            <div className="rectangle">
-
-              <div className={`admin ${formik.values.UserType === "admin" ? "active" : ""}`}>
+          <div className="ert34">
+            <h2 className="m9oi">Register</h2>
+            <div className="rectangle2">
+              <div
+                className={`admin ${
+                  formik.values.UserType === "admin" ? "active" : ""
+                }`}
+              >
                 <label htmlFor="adminRadio">
                   <input
                     type="radio"
@@ -94,7 +103,7 @@ function Signin() {
                     onChange={formik.handleChange}
                   />
                   <button
-                    className="bu1"
+                    className="bu11"
                     id="c#1"
                     style={buttonStyle}
                     onClick={() => handleButtonClick("c#1")}
@@ -104,7 +113,11 @@ function Signin() {
                 </label>
               </div>
 
-              <div className={`user ${formik.values.UserType === "user" ? "active" : ""}`}>
+              <div
+                className={`user ${
+                  formik.values.UserType === "user" ? "active" : ""
+                }`}
+              >
                 <label htmlFor="userRadio">
                   <input
                     type="radio"
@@ -115,7 +128,7 @@ function Signin() {
                     onChange={formik.handleChange}
                   />
                   <button
-                    className="bu2"
+                    className="bu21"
                     id="c#2"
                     style={buttonStyle2}
                     onClick={() => handleButtonClick("c#2")}
@@ -124,7 +137,6 @@ function Signin() {
                   </button>
                 </label>
               </div>
-
             </div>
             <div
               className={`admin_login ${
@@ -134,13 +146,58 @@ function Signin() {
               <form onSubmit={formik.handleSubmit}>
                 <div className="row1">
                   <div className="col-12">
-                    <div className="row1">
-                      <label>Name</label>
+                    <div className="profile78 flex justify-center py-4">
+                      <label htmlFor="profile79" className="avatar-wrapper">
+                        <img
+                          src={file || avatar}
+                          className="eit56"
+                          alt="avatar"
+                        />
+                      </label>
+
                       <input
-                        {...formik.getFieldProps("username")}
-                        type="text"
-                        id="try"
+                        type="file"
+                        id="profile79"
+                        name="profile79"
+                        className="hidden-input78"
+                        onChange={onUpload}
                       />
+                    </div>
+
+                    <div className="vgv">
+                      <div className="row1 gap">
+                        <label>Username</label>
+                        <input
+                          {...formik.getFieldProps("username")}
+                          type="text"
+                        />
+                      </div>
+                      <div className="row1">
+                        <label>Email</label>
+                        <input
+                          {...formik.getFieldProps("email")}
+                          type="email"
+                          id="try"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="vgv">
+                      <div className="row1 gap">
+                        <label>Password</label>
+                        <input
+                          {...formik.getFieldProps("password")}
+                          type="text"
+                        />
+                      </div>
+                      <div className="row1">
+                        <label>Confirm Password</label>
+                        <input
+                          {...formik.getFieldProps("confirmpassword")}
+                          type="password"
+                          id="try"
+                        />
+                      </div>
                     </div>
                     <div className="row1">
                       <label>Secret Key</label>
@@ -150,30 +207,7 @@ function Signin() {
                         id="try"
                       />
                     </div>
-                    <div className="row1">
-                      <label>Email</label>
-                      <input
-                        {...formik.getFieldProps("email")}
-                        type="email"
-                        id="try"
-                      />
-                    </div>
-                    <div className="row1">
-                      <label>Password</label>
-                      <input
-                        {...formik.getFieldProps("password")}
-                        type="text"
-                        id="try"
-                      />
-                    </div>
-                    <div className="row1">
-                      <label>Confirm Password</label>
-                      <input
-                        {...formik.getFieldProps("confirmpassword")}
-                        type="password"
-                        id="try"
-                      />
-                    </div>
+
                     <div className="row1">
                       <button type="submit" className="btn" id="login">
                         Register
@@ -189,41 +223,59 @@ function Signin() {
                 isClicked["c#2"] ? "transition active" : ""
               }`}
             >
-                            <form onSubmit={formik.handleSubmit}>
+              <form onSubmit={formik.handleSubmit}>
                 <div className="row1">
                   <div className="col-12">
-                    <div className="row1">
-                      <label>Name</label>
+                  <div className="profile78 flex justify-center py-4">
+                      <label htmlFor="profile79" className="avatar-wrapper">
+                        <img src={file || avatar} className="eit56" alt="avatar" />
+                      </label>
+
                       <input
-                        {...formik.getFieldProps("username")}
-                        type="text"
-                        id="try"
+                        type="file"
+                        id="profile79"
+                        name="profile79"
+                        className="hidden-input78"
+                        onChange={onUpload} 
                       />
                     </div>
-                    <div className="row1">
-                      <label>Email</label>
-                      <input
-                        {...formik.getFieldProps("email")}
-                        type="email"
-                        id="try"
-                      />
+
+                    <div className="vgv">
+                      <div className="row1 gap">
+                        <label>Username</label>
+                        <input
+                          {...formik.getFieldProps("username")}
+                          type="text"
+                        />
+                      </div>
+                      <div className="row1">
+                        <label>Email</label>
+                        <input
+                          {...formik.getFieldProps("email")}
+                          type="email"
+                          id="try"
+                        />
+                      </div>
                     </div>
-                    <div className="row1">
-                      <label>Password</label>
-                      <input
-                        {...formik.getFieldProps("password")}
-                        type="text"
-                        id="try"
-                      />
+
+                    <div className="vgv">
+                      <div className="row1 gap">
+                        <label>Password</label>
+                        <input
+                          {...formik.getFieldProps("password")}
+                          type="text"
+                        />
+                      </div>
+                      <div className="row1">
+                        <label>Confirm Password</label>
+                        <input
+                          {...formik.getFieldProps("confirmpassword")}
+                          type="password"
+                          id="try"
+                        />
+                      </div>
                     </div>
-                    <div className="row1">
-                      <label>Confirm Password</label>
-                      <input
-                        {...formik.getFieldProps("confirmpassword")}
-                        type="password"
-                        id="try"
-                      />
-                    </div>
+
                     <div className="row1">
                       <button type="submit" className="btn" id="login">
                         Register
@@ -232,7 +284,7 @@ function Signin() {
                   </div>
                 </div>
               </form>
-              </div>
+            </div>
           </div>
         </section>
       </div>

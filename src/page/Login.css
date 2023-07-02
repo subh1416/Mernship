@@ -78,6 +78,10 @@
   display: none;
 }
 
+.ui89{
+  display: none;
+}
+
 .admin_login.active,
 .user_login.active {
   display: block;
