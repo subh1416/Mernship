@@ -1,5 +1,5 @@
 import AddWork from "../AddWork";
-import Previous from "../Previous";
+import Previous from "../Previous"
 import Profile from "../Profile";
 // import Settings from "./Settings";
 import UDashnav from "../../components/UserDashnav/Udashnav";
