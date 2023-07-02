@@ -63,10 +63,10 @@ function UDashnav({ activeLink, handleLinkClick }) {
           <li>
             <Link
               // to="/profile"
-              className={activeLink === "previous" ? "bhola active" : "bhola"}
+              className={activeLink === "activity" ? "bhola active" : "bhola"}
               onClick={() => handleLinkClick("previous")}
             >
-              Previous Activity
+              Activity
             </Link>
           </li>
           <li>
