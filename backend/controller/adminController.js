@@ -1,20 +1,18 @@
 import UserModel from "../model/User.model.js";
 
-
 export async function addUser(req , res ){
-    const {username , email , password , address , mobile } = req.body;
-
-   if (!username || !email || !password  || !address || !mobile){
+    const {username , email , address , password ,mobile } = req.body;
+   if (!username || !email || !address || !mobile || !password){
     res.status(422).json("plz filled the filed")
    }
-   
+ 
    try{
     const userExist = await UserModel.findOne({email:email});
     if (userExist){
         return res.status(422).json({error:"Email Exist"});
     }
     
-    const adduser= new UserModel({username , email , password  , address ,mobile});
+    const adduser= new UserModel({username , email , password , address ,mobile ,UserType: "user"});
     await adduser.save();
     res.status(201).json({message:"user resigter"});
 
@@ -24,16 +22,25 @@ export async function addUser(req , res ){
 }
 
 
-export async function getdata(req ,res){
-    try{
-         const userdata = await UserModel.find();
-         res.status(201).json(userdata)
-        // console.log(userdata);
-    }catch (error) { 
-        res.status(422).json(error);
+export async function getdata(req, res) {
+    try {
+      const userdata = await UserModel.find({ UserType: 'user' });
+      res.status(201).json( userdata );
+    } catch (error) {
+      res.status(422).json(error);
     }
-}
+  }
+  
 
+export async function getcountofusers(req, res) {
+    try {
+        const count = await UserModel.countDocuments({ UserType: 'user' });
+              res.status(201).json( count );
+    } catch (error) {
+      res.status(422).json(error);
+    }
+  }
+  
 
 export async function getuser( req , res ){
     try {
