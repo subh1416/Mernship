@@ -1,87 +1,108 @@
 import path from 'path';
 import crypto from 'crypto';
 import multer from 'multer';
-import GridFsStorage from 'multer-gridfs-storage'
+import { GridFsStorage } from 'multer-gridfs-storage';
 import mongoose from 'mongoose';
 import ENV from '../config.js';
 import Grid from 'gridfs-stream'
 
 
- const conn = mongoose.createConnection(ENV.FILE_UPLOAD_DB_URI,  { useUnifiedTopology: true })
 
- let gfs
 
- conn.once('open', ()=>{
-   gfs = Grid(conn.db, mongoose.mongo)
-   gfs.collection('uploads')
-   console.log('GridFS bucket created successfully');
- })
+ function gridStorage(){
+  const storageFS = new GridFsStorage({
+    url : ENV.ATLAS_URI,
+    file: (req,file)=>{
+      return{
+        filename: file.originalname,
+        bucketName: "uploads"
+      }
+    }
+  })
 
-const createStorageEngine  = () => {
-new GridFsStorage({
-  url: ENV.FILE_UPLOAD_DB_URI,
-  file: (req, file) => {
-    return new Promise((resolve, reject) => {
-      crypto.randomBytes(16, (err, buf) => {
-        if (err) {
-          return reject(err);
-        }
-        const filename = buf.toString('hex') + path.extname(file.originalname);
-        const fileInfo = {
-          filename: filename,
-          bucketName: 'uploads'
-        };
-        resolve(fileInfo);
-      });
-    });
-  }
-});
+  let upload = multer({storage: storageFS})
+
+  return upload
 }
 
-const storage = createStorageEngine();
-const upload = multer({ storage,limits: {
-    fileSize: 200 * 1024 * 1024, // 10MB limit
-  },
-}); 
+export default gridStorage()
 
-// export default upload
 
- async function fileUpload(req, res) {
-   try {
-     // Connect to the second database (Files)
-     // const db = await mongoose.connect(ENV.FILE_UPLOAD_DB_URI);
-//      const conn = mongoose.createConnection(ENV.FILE_UPLOAD_DB_URI)
-//      console.log('File Upload Database Connected');
-   
-//      let gfs
+//  const conn = mongoose.createConnection(ENV.FILE_UPLOAD_DB_URI,  { useUnifiedTopology: true })
+
+//  let gfs 
 
 //  conn.once('open', ()=>{
 //    gfs = Grid(conn.db, mongoose.mongo)
 //    gfs.collection('uploads')
+//    console.log('GridFS bucket created successfully');
 //  })
-     // Upload a single file
-     upload.single('file')(req, res, (err) => {
-       if (err) {
-         console.error(err);
-         // Handle error
-       } else {
-         // File upload successful
-         console.log('File uploaded successfully');
-         // Additional logic or response handling
-       }
-     });
 
-     // Disconnect from the second database when done
-     await mongoose.disconnect();
-     console.log('File Upload Database Disconnected');
-   } catch (error) {
-     console.error(error);
-     // Handle error
-     res.status(500).json({ message: 'File upload failed' });
-   }
- }
+// const createStorageEngine  = () => {
+// new GridFsStorage({
+//   url: ENV.FILE_UPLOAD_DB_URI,
+//   file: (req, file) => {
+//     return new Promise((resolve, reject) => {
+//       crypto.randomBytes(16, (err, buf) => {
+//         if (err) {
+//           return reject(err);
+//         }
+//         const filename = buf.toString('hex') + path.extname(file.originalname);
+//         const fileInfo = {
+//           filename: filename,
+//           bucketName: 'uploads'
+//         };
+//         resolve(fileInfo);
+//       });
+//     });
+//   }
+// });
+// }
 
- export { upload, fileUpload };
+// const storage = createStorageEngine();
+// const upload = multer({ storage,limits: {
+//     fileSize: 200 * 1024 * 1024, // 10MB limit
+//   },
+// }); 
+
+// // export default upload
+
+//  async function fileUpload(req, res) {
+//    try {
+//      // Connect to the second database (Files)
+//      // const db = await mongoose.connect(ENV.FILE_UPLOAD_DB_URI);
+// //      const conn = mongoose.createConnection(ENV.FILE_UPLOAD_DB_URI)
+// //      console.log('File Upload Database Connected');
+   
+// //      let gfs
+
+// //  conn.once('open', ()=>{
+// //    gfs = Grid(conn.db, mongoose.mongo)
+// //    gfs.collection('uploads')
+// //  })
+//      // Upload a single file
+//      upload.single('file')(req, res, (err) => {
+//        if (err) {
+//          console.error(err);
+//          // Handle error
+//        } else {
+//          // File upload successful
+//          console.log('File uploaded successfully');
+//          // Additional logic or response handling
+//        }
+//      });
+
+//      // Disconnect from the second database when done
+//      await mongoose.disconnect();
+//      console.log('File Upload Database Disconnected');
+//    } catch (error) {
+//      console.error(error);
+//      // Handle error
+//      res.status(500).json({ message: 'File upload failed' });
+//    }
+//  }
+
+//  export { upload, fileUpload };
 
 // async function fileUpload(req,res) {
 //   
