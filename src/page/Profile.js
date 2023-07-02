@@ -39,7 +39,7 @@ function Profile() {
                 <div className="urectangle">
                   <div className="uadmin">
                     <div className='proimg'>
-                        <center><img src="https://img.freepik.com/free-icon/user_318-159711.jpg" class="img-thumbnail" alt="..." id='propic' /></center>
+                        <center><img src={uname.profile} className="img-thumbnail" alt="..." id='propic' /></center>
                     </div>
                     <hr id='hr'></hr>
                     <div className='details'>

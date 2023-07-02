@@ -6,7 +6,7 @@ import router from './router/route.js';
 import routers from './router/adminroute.js';
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(cors());
 app.use(morgan('tiny'));
 app.disable('x-powered-by');

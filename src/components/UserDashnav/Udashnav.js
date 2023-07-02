@@ -32,7 +32,9 @@ function UDashnav({ activeLink, handleLinkClick }) {
   return (
     <div className="das23">
       <div className="prof">
-        <div className="social" id="social1"></div>
+        <div className="social" id="social1">
+          <img src={uname.profile} alt="" id="img1" />
+        </div>
         <div className="nam2">
           <span className="name">{uname.username}</span>
           <span className="gname">{uname.email}</span>

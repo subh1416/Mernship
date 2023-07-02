@@ -22,16 +22,25 @@ export async function addUser(req , res ){
 }
 
 
-export async function getdata(req ,res){
-    try{
-         const userdata = await UserModel.find({UserType : "user"});
-         res.status(201).json(userdata)
-        // console.log(userdata);
-    }catch (error) { 
-        res.status(422).json(error);
+export async function getdata(req, res) {
+    try {
+      const userdata = await UserModel.find({ UserType: 'user' });
+      res.status(201).json( userdata );
+    } catch (error) {
+      res.status(422).json(error);
     }
-}
+  }
+  
 
+export async function getcountofusers(req, res) {
+    try {
+        const count = await UserModel.countDocuments({ UserType: 'user' });
+              res.status(201).json( count );
+    } catch (error) {
+      res.status(422).json(error);
+    }
+  }
+  
 
 export async function getuser( req , res ){
     try {
