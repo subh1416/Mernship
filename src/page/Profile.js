@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import React, {useState , useEffect} from 'react';
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import './profile.css';
 import {getUsername , getUser} from '../helper/helper'
 

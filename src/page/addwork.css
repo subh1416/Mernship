@@ -64,3 +64,87 @@
 .add-work button:hover {
   background-color: #45a049;
 } */
+
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+
+.file-input{
+  display: flex;
+  height: 62px;
+  /* justify-content: space-between; */
+
+}
+
+.file-input label {
+  display: block;
+  position: relative;
+  width: 91px;
+  height: 45px;
+  border-radius: 10px;
+  background: linear-gradient(40deg, #ff6ec4, #7873f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s ease-out;
+  margin-top: 15px;
+  margin-right: 9px;
+  
+}
+
+.kjk87 input:hover + label,
+.kjk87 input:focus + label {
+  transform: scale(1.02);
+}
+
+.kjk87 input:focus + label {
+  outline: 1px solid #000;
+  outline: -webkit-focus-ring-color auto 2px;
+}
+.file-name {
+  display: inline-block;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-family: 'PT Serif', serif;
+  /* margin-left: 1rem; */
+  padding: 0.2rem 0.5rem;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  /* background-color: #f9f9f9; */
+  /* margin-top: 0 auto; */
+}
+
+
+
+
+.upload-btn {
+  /* Add custom styles for the upload button */
+  /* Example styles: */
+  /* background-color: #4caf50; */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  /* margin-left: 10px; */
+  /* margin-left: 1rem; */
+}
+
+.upload-btn:disabled {
+  /* Add custom styles for the disabled upload button */
+  /* Example styles: */
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.nkk90{
+  width: max-content;
+}
