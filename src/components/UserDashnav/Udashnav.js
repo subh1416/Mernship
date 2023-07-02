@@ -36,6 +36,10 @@ function UDashnav({ activeLink, handleLinkClick }) {
           <img src={uname.profile} alt="" id="img1" />
         </div>
         <div className="nam2">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8289a385378c96adf46ddfe3aab76859cb10102a
           <span className="name">{uname.username}</span>
           <span className="gname">{uname.email}</span>
         </div>

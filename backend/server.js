@@ -10,11 +10,18 @@ import routerss from './router/userroute.js'
 const app = express();
 
 
+<<<<<<< HEAD
+ app.use(bodyParser.json())               // copy and paste it in fileupload.js
+// app.use(methodOverride('_method'))
+
+app.use(express.json({ limit: '10mb' }));
+=======
 
  app.use(bodyParser.json())               
 
 app.use(express.json({ limit: '10mb' }));
 
+>>>>>>> 8289a385378c96adf46ddfe3aab76859cb10102a
 app.use(cors());
 app.use(morgan('tiny'));
 app.disable('x-powered-by');

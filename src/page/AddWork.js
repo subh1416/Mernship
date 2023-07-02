@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 import React, { useState } from 'react';
 import './addwork.css';
@@ -105,3 +107,4 @@ export default AddWork;
 // // export default AddWork
 
 
+>>>>>>> 8289a385378c96adf46ddfe3aab76859cb10102a
