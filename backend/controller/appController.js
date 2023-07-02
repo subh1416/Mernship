@@ -24,22 +24,23 @@ export async function verifyEmail(req, res, next) {
   } catch (error) {
     return res.status(404).send({ error: "Authentication Error" });
   }
-}
 
+}
 export async function register(req, res) {
   try {
-    const { username, password, profile, email,UserType } = req.body;
+    const { username, password, profile, email, UserType } = req.body;
+
 
     // Check the existing user
     const existingUsername = await UserModel.findOne({ username });
     const existingEmail = await UserModel.findOne({ email });
 
     if (existingUsername) {
-      throw new Error("Please use a unique username");
+      return res.status(400).send({ error: "Username already exists" });
     }
 
     if (existingEmail) {
-      throw new Error("Please use a unique email");
+      return res.status(400).send({ error: "Email already exists" });
     }
 
     if (password) {
@@ -50,20 +51,22 @@ export async function register(req, res) {
         password: hashedPassword,
         profile: profile || "",
         email,
+  
         UserType
       });
 
       // Save the user to the database
       const result = await user.save();
 
-      res.status(201).send({ msg: "User registered successfully" });
+      return res.status(201).send({ msg: "User registered successfully" });
     } else {
-      throw new Error("Password is required");
+      return res.status(400).send({ error: "Password required" });
     }
   } catch (error) {
-    res.status(500).send({ error: error.message });
+    return res.status(400).send({ error: error.message });
   }
 }
+
 
 export async function login(req, res) {
   const { username, password, UserType } = req.body;
@@ -81,7 +84,7 @@ export async function login(req, res) {
               {
                 userId: user._id,
                 username: user.username,
-                userType: user.UserType
+                userType: user.UserType,
               },
               ENV.JWT_SECRET,
               { expiresIn: "24h" }
@@ -254,3 +257,5 @@ export async function resetPassword(req, res) {
     return res.status(500).send({ error: error.message });
   }
 }
+
+

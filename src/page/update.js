@@ -3,11 +3,11 @@ import { useParams ,useNavigate} from 'react-router-dom';
 
 const Update = () => {
   
-  let history = useNavigate();
+  let navigate = useNavigate();
   
 //  const  [getuserdata , setUserdata] =useState([]);
 //  console.log(getuserdata);
-
+ // const [userType , setUserType] = useState('')
   const [user, setUser] = useState({
     username: "", email: "", address :"" 
 });
@@ -66,7 +66,8 @@ const updateuser = async(e) =>{
     alert("fill the data")
   }else{
     alert("data updated")
-    history("/admin")
+    navigate(-1);
+
   }
 }
   return (

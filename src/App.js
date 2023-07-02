@@ -3,7 +3,6 @@ import Signin from "./page/Signin";
 import Homepage from "./page/Homepage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./page/Login";
-import Dash from "./page/Dash";
 import Dash2 from "./page/Dash2";
 import PageNotFound from "./page/PageNotFound";
 import Recover from "./page/Recover";
