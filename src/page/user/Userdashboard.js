@@ -1,4 +1,4 @@
-import AddWork from "../AddWork";
+import AddWork from "../AddWork"
 import Previous from "../Previous"
 import Profile from "../Profile";
 // import Settings from "./Settings";

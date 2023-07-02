@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import './addwork.css';
 import axios from 'axios'
+
+
 function AddWork() {
-  
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState('');
 
@@ -41,30 +43,39 @@ function AddWork() {
     }
 
 
-  const divStyle = {
-    height: "100px",
-  };
+  // const divStyle = {
+  //   height: "100px",
+  // };
 
-  const colorjuw = {
-    backgroundColor: '#9b59b6',
-  };
-    return (
+  // const colorjuw = {
+  //   backgroundColor: '#9b59b6',
+  // };
+}
+  return (
     <div>
       <h1>Add Work</h1>
+       
+      <div className="input6757">
+        <div className="form-floating my-4"  >
+          <label for="floatingTextarea">Add Title</label>
+        </div>
 
-      <input type="file" onChange={handleFileChange} />
-      <br />
-      <textarea
-        placeholder="Enter description..."
-        value={description}
+        <div className="form-floating">
+          <textarea
+            className="form-control"
+            placeholder="Leave a comment here"
+            value={description}
         onChange={handleDescriptionChange}
-      ></textarea>
+            id="floatingTextarea2"
+          ></textarea>
+          <label for="floatingTextarea2">Add Description</label>
+        </div>
+        <button class="btn btn-primary my-3" onClick={handleUpload}>Upload</button>
+        <input type="file" onChange={handleFileChange} />
       <br />
-      <button onClick={handleUpload}>Upload</button>
-
+      </div>
     </div>
   );
-    }
-  }
+}
 
-export default AddWork
+export default AddWork;
