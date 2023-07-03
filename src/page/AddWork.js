@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./addwork.css";
+import "./toasts.css";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+
 
 function AddWork() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -16,8 +19,30 @@ function AddWork() {
   };
 
   const handleUpload = () => {
-    // Upload logic...
-  };
+    if (selectedFile && description) {
+        const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('description', description);
+       
+      axios.post('http://localhost:8000/api/upload', formData,{
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+})
+        .then((response) => {
+          console.log(response.data);
+          // Reset input values
+          setSelectedFile(null);
+          setDescription('');
+          toast.success("File uploaded successfully");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error("Could not upload file");        });
+    } else {
+      toast.error("Please select a file and provide a description.");    }
+  }
+
 
   useEffect(() => {
     const fileInput = document.querySelector("#file");
@@ -41,6 +66,8 @@ function AddWork() {
 
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} ></Toaster>
+
       <h1>Add Work</h1>
 
       <div className="input6757">

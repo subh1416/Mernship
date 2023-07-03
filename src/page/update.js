@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom';
-import avatar from "../assets/profile.png";
-import convertToBase64 from "../helper/convert";
+
+import React ,{useState ,useEffect}from 'react'
+import { useParams ,useNavigate} from 'react-router-dom';
+import toast, { Toaster } from "react-hot-toast";
 
 const Update = () => {
 
@@ -33,11 +33,46 @@ const Update = () => {
         "Content-Type": "application/json"
       },
 
+
     });
     const data = await res.json();
     console.log(data);
 
-    if (res.status === 422 || !data) {
+if (res.status === 422 || !data){
+  
+  console.log("error");
+}else{
+  setUser(data)
+  console.log(" get data ");
+}
+}
+useEffect(() =>{
+  getdata();
+},[])
+
+const updateuser = async(e) =>{
+  e.preventDefault();
+  const {username,email,address} =user;
+
+  const res2 = await fetch (`/updateuser/${id}`,{
+    method:"PATCH",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      username,email,address
+    })
+  });
+  const data2 = await res2.json();
+  console.log(data2);
+  if (res2.status === 422 || !data2){
+    toast.error("Please fill the data");
+  }else{
+    toast.success("Data uploaded succesfully");
+    setTimeout(() => {
+      navigate(-1);
+    }, 1000);
+
 
       console.log("error");
     } else {
@@ -78,6 +113,8 @@ const Update = () => {
   }
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} ></Toaster>
+
       <div className="container">
 
         <form className='mt-4'>
