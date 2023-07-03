@@ -89,6 +89,7 @@ function Usercard() {
   const usersForCurrentPage = userData.slice(indexOfFirstUser, indexOfLastUser);
 
   return (
+
     <>
       {isLoading ? (
         <Spinner />
@@ -126,6 +127,7 @@ function Usercard() {
                   </div>
                 </div>
               </div>
+
             </div>
           ))}
 

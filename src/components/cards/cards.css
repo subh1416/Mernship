@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .card-circle{
     text-align:center;
      margin-top:50px;
@@ -9,6 +16,7 @@
      Font-family: Montserrat;
      padding:50px;
      border-radius:50%;
+    
 }
  .card-circle .card-title{
     font-weight:600;
