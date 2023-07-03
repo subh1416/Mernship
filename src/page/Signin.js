@@ -27,7 +27,7 @@ function Signin() {
     
     onSubmit: async (values) => {
       console.log(values);
-      values = await Object.assign(values, { profile: file || "" });
+      values = await Object.assign(values, { profile: file || avatar });
       let registerPromise = registerUser(values);
       toast.promise(registerPromise, {
         loading: "Creating",

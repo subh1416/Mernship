@@ -1,10 +1,9 @@
 import React from 'react';
-import './cards.css'
+import './cards.css';
 
 function Cards() {
   return (
-    <div>
-      <div className="container">
+   <div className="container">
    <div className="row">
      
       <div className="card card-circle">
@@ -14,10 +13,10 @@ function Cards() {
          <div className="card-body">
             <h5 className="card-title">Apple</h5>
             <p className="card-text">Some quick example text to build on the card title and card content.</p>
-            <button  className="btn btn-primary">Eat me</button>
+            <a href="#" className="btn btn-primary">Eat me</a>
          </div>
       </div>
-      
+    
       <div className="card card-circle">
          <div className="card-icon">
             <i className="fas fa-cookie"></i>
@@ -25,10 +24,10 @@ function Cards() {
          <div className="card-body">
             <h5 className="card-title">Cookie</h5>
             <p className="card-text">Some quick example text to build on the card title and card content.</p>
-            <button  className="btn btn-primary">Eat me</button>
+            <a href="#" className="btn btn-primary">Eat me</a>
          </div>
       </div>
-      
+ 
       <div className="card card-circle ">
          <div className="card-icon">
             <i className="fas fa-carrot"></i>
@@ -36,13 +35,12 @@ function Cards() {
          <div className="card-body">
             <h5 className="card-title">Carrot</h5>
             <p className="card-text">Some quick example text to build on the card title and card content.</p>
-            <button  className="btn btn-primary">Eat me</button>
+            <a href="#" className="btn btn-primary">Eat me</a>
          </div>
       </div>
    </div>
 </div>
-    </div>
-  )
+  );
 }
 
-export default Cards
+export default Cards;
