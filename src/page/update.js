@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
+import avatar from "../assets/profile.png";
+import convertToBase64 from "../helper/convert";
+
 
 const Update = () => {
+  const [file, setFile] = useState();
+
   const navigate = useNavigate();
   const { id } = useParams();
   const [user, setUser] = useState({
     username: "",
     email: "",
     address: "",
-    profile: ""
+    profile: "",
+
   });
 
   const handleInputChange = (e) => {
@@ -41,7 +47,7 @@ const Update = () => {
 
   const updateuser = async (e) => {
     e.preventDefault();
-    const { username, email, address } = user;
+    const { username, email, address,profile } = user;
 
     try {
       const res = await fetch(`/updateuser/${id}`, {
@@ -52,7 +58,8 @@ const Update = () => {
         body: JSON.stringify({
           username,
           email,
-          address
+          address,
+          profile
         })
       });
 
@@ -74,6 +81,12 @@ const Update = () => {
     getdata();
   }, []);
 
+  const onUpload = async (e) => {
+    const base64 = await convertToBase64(e.target.files[0]);
+    setFile(base64);
+    setUser({ ...user, profile: base64 });
+  };
+
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false}></Toaster>
@@ -81,6 +94,23 @@ const Update = () => {
       <div className="container">
         <form className='mt-4'>
           <div className='row'>
+          <div className="profile78 flex justify-center py-4">
+                      <label htmlFor="profile79" className="avatar-wrapper">
+                        <img
+                          src={file || user.profile}
+                          className="eit56"
+                          alt="avatar"
+                        />
+                      </label>
+
+                      <input
+                        type="file"
+                        id="profile79"
+                        name="profile79"
+                        className="hidden-input78"
+                        onChange={onUpload}
+                      />
+                    </div>
             <div className="mb-3 col-lg-6 col-md-6 col-12 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
               <input

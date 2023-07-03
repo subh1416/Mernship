@@ -40,6 +40,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 3em;
+  font-family: 'PT Serif', serif;
 }
 
 .rectangle2 {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './usercard.css';
 import { useNavigate } from 'react-router-dom';
 import Spinner from './Spinner';
+import avatar from "../../assets/profile.png";
 
 function Usercard() {
   const [currentPage, setCurrentPage] = useState(1); // Current page number
@@ -100,7 +101,7 @@ function Usercard() {
               <div className="profile-content">
                 <div className="profile-info">
                   <div className="profile-picture">
-                    <img src={element.profile} alt="Profile" />
+                    <img src={element.profile || avatar} alt="Profile" />
                   </div>
                   <div className="profile-header">
                     <h2>{element.username}</h2>
