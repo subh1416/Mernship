@@ -1,9 +1,8 @@
-import React from "react";
-import "./Dash.css";
+import React, { useEffect, useState } from 'react';
+import './Dash.css';
 import Smallcards from "../components/Smallcards/Smallcards";
 import Usercard from "../components/usercard/Usercard";
 import { NavLink } from "react-router-dom";
-import { useState , useEffect } from "react";
 
 function Dash2() {
   const [userCount, setUserCount] = useState(0);
@@ -11,7 +10,7 @@ function Dash2() {
     try {
       const res = await fetch('/getcountofusers');
       const data = await res.json();
-    
+
       if (res.status === 201) {
         setUserCount(data);
       } else {
@@ -25,12 +24,6 @@ function Dash2() {
   useEffect(() => {
     getcount();
   }, []);
-  
-  
-
-
-
-
 
   return (
     <div className="dsdf3">
@@ -51,7 +44,7 @@ function Dash2() {
           <div className="head64">
             <div className="hed34">
               <span className="ofji"> All Users</span>
-             <NavLink to="/addUser"> <button className="hgo">Add User</button></NavLink>
+              <NavLink to="/addUser"><button className="hgo">Add User</button></NavLink>
             </div>
             <div className="sercg">
               {" "}
