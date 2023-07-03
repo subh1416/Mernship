@@ -68,7 +68,7 @@ function AddWork() {
     <div>
       <Toaster position="top-center" reverseOrder={false} ></Toaster>
 
-      <h1>Add Work</h1>
+      <h1 className="jelo0" >Add Work</h1>
 
       <div className="input6757">
         <div className="form-floating">

@@ -8,6 +8,11 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.jelo0{
+  font-size: 2em;
+  font-family: 'PT Serif', serif;
+}
+
 .title {
   font-size: 24px;
   margin-bottom: 20px;
