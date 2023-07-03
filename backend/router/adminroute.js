@@ -6,6 +6,7 @@ import * as controller from "../controller/adminController.js";
 routers.post('/addUser' , controller.addUser );
 
 routers.get("/getdata" , controller.getdata);
+routers.get("/getcountofusers" , controller.getcountofusers);
 
 routers.get("/getuser/:id" , controller.getuser);
 

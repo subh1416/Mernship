@@ -24,6 +24,7 @@ export const UserSchema = new mongoose.Schema({
     lastName: { type: String},
     mobile : { type : Number},
     address: { type: String},
+    imgpath:{type:String},
     profile: { type: String}
 });
 

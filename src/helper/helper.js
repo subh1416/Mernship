@@ -51,11 +51,11 @@ export async function registerUser(credentials){
     try {
         const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
 
-        let { username, email,UserType } = credentials;
+        let { username, email} = credentials;
 
         /** send email */
         if(status === 201){
-            await axios.post('/api/registerMail', { username, userEmail : email,UserType, text : msg})
+            await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
         }
 
         return Promise.resolve(msg)
@@ -64,6 +64,8 @@ export async function registerUser(credentials){
     }
 }
 
+
+  
 /** login function */
 export async function verifyPassword({ username, password }){
     try {
