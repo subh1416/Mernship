@@ -68,10 +68,21 @@ function Usercard() {
         <div className="profile-info">
      
           <div className="profile-picture">
-            <img
+          {element.profile  ? (
+        <img
+          src={element.profile}
+          alt="User Profile"
+        />
+      ) : (
+        <img
+          src={"https://www.pngall.com/wp-content/uploads/12/Avatar-PNG-Images-HD.png"}
+          alt="Avatar"
+        />
+      )}
+            {/* <img
               src={element.profile}
               alt="Profile"
-            />
+            /> */}
           </div>
           <div className="profile-header">
             <h2>{element.username}</h2>

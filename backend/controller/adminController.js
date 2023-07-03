@@ -1,8 +1,42 @@
 import UserModel from "../model/User.model.js";
+import bcrypt from "bcrypt";
+ //For adduser by admin generate password. 
+    const generatePassword = () => {
+      const length = 10; // Length of the generated password
+      const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+      const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const numberChars = '0123456789';
+      const specialChars = '!@#$%^&*()';
+      let newPassword = '';
+  
+      // Ensure at least one capital letter
+      newPassword += uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
+  
+      // Ensure at least one special character
+      newPassword += specialChars[Math.floor(Math.random() * specialChars.length)];
+  
+      // Ensure at least one number
+      newPassword += numberChars[Math.floor(Math.random() * numberChars.length)];
+  
+      // Fill the rest of the password with random characters
+      for (let i = 3; i < length; i++) {
+        const charSet = lowercaseChars + uppercaseChars + numberChars + specialChars;
+        newPassword += charSet[Math.floor(Math.random() * charSet.length)];
+      }
+  
+      // Shuffle the password characters
+      newPassword = newPassword.split('').sort(() => Math.random() - 0.5).join('');
+  
+      return (newPassword);
+    };
+
 
 export async function addUser(req , res ){
-    const {username , email , address , password ,mobile } = req.body;
-   if (!username || !email || !address || !mobile || !password){
+    const {username , email , address ,mobile } = req.body;
+    const password = generatePassword();
+    console.log("This is password");
+    console.log(password);
+   if (!username || !email || !address || !mobile){
     res.status(422).json("plz filled the filed")
    }
  
@@ -11,8 +45,9 @@ export async function addUser(req , res ){
     if (userExist){
         return res.status(422).json({error:"Email Exist"});
     }
-    
-    const adduser= new UserModel({username , email , password , address ,mobile ,UserType: "user"});
+    const encryptedPassword = await bcrypt.hash(password ,10);
+
+    const adduser= new UserModel({username , email , address ,mobile , password:encryptedPassword ,UserType: "user"});
     await adduser.save();
     res.status(201).json({message:"user resigter"});
 
