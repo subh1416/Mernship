@@ -124,4 +124,5 @@ const Adduser = () => {
   );
 };
 
-export default Adduser;
+export default Adduser
+
