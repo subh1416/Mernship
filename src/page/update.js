@@ -1,5 +1,6 @@
 import React ,{useState ,useEffect}from 'react'
 import { useParams ,useNavigate} from 'react-router-dom';
+import toast, { Toaster } from "react-hot-toast";
 
 const Update = () => {
   
@@ -63,15 +64,19 @@ const updateuser = async(e) =>{
   const data2 = await res2.json();
   console.log(data2);
   if (res2.status === 422 || !data2){
-    alert("fill the data")
+    toast.error("Please fill the data");
   }else{
-    alert("data updated")
-    navigate(-1);
+    toast.success("Data uploaded succesfully");
+    setTimeout(() => {
+      navigate(-1);
+    }, 1000);
 
   }
 }
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} ></Toaster>
+
       <div className="container">
         
         <form className='mt-4'>
